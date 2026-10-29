@@ -1,0 +1,57 @@
+/* src/styles/global.css */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #9D174D; /* Rumy Magenta */
+  --color-secondary: #D97706; /* Rumy Gold */
+  --color-bg: #FAF7F5; /* Soft Cream */
+  --color-text-dark: #1E1B19; /* Dark Charcoal */
+  --color-text-light: #475569; /* Slate Grey */
+  
+  /* Typography */
+  --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: #fffaf7; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

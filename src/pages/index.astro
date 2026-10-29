@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Features from '../components/Features.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../components/Header.css';
+import '../components/Hero.css';
+import '../components/HowItWorks.css';
+import '../components/Features.css';
+import '../components/FinalCTA.css';
+import '../components/Footer.css';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/rumy-cakes-logo.png" />
+    <meta name="description" content="Rumy Cakes - Watch bakers create artisanal cakes live, chat in real-time, and order fresh treats delivered to your door." />
+    <title>Rumy Cakes | The Bakery is Live</title>
+  </head>
+  <body>
+    
+    <Header />
+
+    <main>
+      <Hero />
+      <HowItWorks />
+      <Features />
+      <FinalCTA />
+    </main>
+
+    <Footer />
+
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<section class="how-it-works" id="how-it-works">
+  <!-- Background Video -->
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    class="hiw-bg-video"
+  >
+    <source src="/second.mp4" type="video/mp4" />
+  </video>
+  <div class="hiw-video-overlay"></div>
+
+  <div class="hiw-container">
+    
+    <!-- LEFT: Content & QR Code -->
+    <div class="hiw-content">
+      <h2 class="hiw-headline">Join the<br />baking fun.</h2>
+      <p class="hiw-lead">Take part in live baking sessions, meet talented local bakers, and get cakes made fresh just for you.</p>
+      
+      <div class="hiw-download">
+        <p class="download-label">Download Rumy Cakes</p>
+        <a href="https://play.google.com/apps/testing/com.rumycakes.app" class="qr-link" aria-label="Download Rumy Cakes">
+          <img src="/rumy-cakes-google-play.png" alt="QR Code" width="120" height="120" />
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Phone Frame with its own video -->
+    <div class="hiw-bg-phone">
+      <div class="bg-phone-frame">
+        <div class="bg-phone-notch"></div>
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          class="bg-phone-video"
+        >
+          <source src="/how.mp4" type="video/mp4" />
+        </video>
+        <div class="bg-viewer-badge">
+          <span class="bg-live-dot"></span>
+          <span>2.4K watching</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- More Button -->
+  <a class="more-button" href="#marketplace" aria-label="See more marketplace features">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+    <span>More</span>
+  </a>
+</section>
+
+<script>
+  // Force loop on all videos
+  document.querySelectorAll('video').forEach(video => {
+    video.loop = true;
+    video.muted = true;
+    video.play().catch(() => {});
+  });
+
+  // Header dark mode on scroll
+  const hiwSection = document.getElementById('how-it-works');
+  const header = document.querySelector('header');
+  
+  if (hiwSection && header) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header.classList.add('header-dark');
+        } else {
+          header.classList.remove('header-dark');
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    observer.observe(hiwSection);
+  }
+</script>

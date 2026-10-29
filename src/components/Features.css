@@ -1,0 +1,210 @@
+/* Features.css - Clean Minimalist Whatnot-inspired Design */
+
+:root {
+  --cream-bg: #faf8f5;
+  --text-dark: #1d1d1f;
+  --text-muted: #6e6e73;
+  --accent-berry: #8e1749;
+  --spring-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.features-section {
+  background: var(--cream-bg);
+  scroll-margin-top: 84px;
+  min-height: 100vh;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.features-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4vw;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 6rem;
+  align-items: center;
+  flex: 1;
+}
+
+/* LEFT: Image */
+.features-image {
+  position: relative;
+  animation: fadeSlideRight 1s var(--spring-smooth) both;
+}
+
+.features-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  transition: transform 0.6s var(--spring-smooth);
+}
+
+.features-image:hover img {
+  transform: scale(1.02);
+}
+
+/* RIGHT: Content */
+.features-content {
+  animation: fadeSlideLeft 1s var(--spring-smooth) 0.2s both;
+}
+
+.features-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+}
+
+.features-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 420px;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+/* QR Code Section */
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  animation: fadeSlideUp 0.8s var(--spring-smooth) 0.4s both;
+}
+
+.qr-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+
+.qr-code-wrapper {
+  background: #fff;
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.5s var(--spring-smooth), box-shadow 0.5s var(--spring-smooth);
+}
+
+.qr-code-wrapper:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.qr-link {
+  display: block;
+  line-height: 0;
+}
+
+.qr-link img {
+  border-radius: 12px;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-inner {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .features-image {
+    order: -1;
+  }
+  
+  .features-content {
+    text-align: center;
+  }
+  
+  .features-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .qr-section {
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .features-section {
+    padding: 5rem 0 3rem;
+  }
+  
+  .features-inner {
+    padding: 0 5vw;
+    gap: 3rem;
+  }
+  
+  .features-title {
+    font-size: 2.25rem;
+  }
+  
+  .features-subtitle {
+    font-size: 1rem;
+  }
+  
+  .qr-link img {
+    width: 120px;
+    height: 120px;
+  }
+  
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
