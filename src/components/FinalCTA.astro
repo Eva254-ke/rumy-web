@@ -37,3 +37,13 @@ import './FinalCTA.css';
     </svg>
   </button>
 </section>
+
+<script>
+  const backToTopBtn = document.querySelector('.floating-back-to-top');
+
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+    });
+  }
+</script>

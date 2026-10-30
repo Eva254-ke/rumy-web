@@ -187,21 +187,6 @@
   }
 }
 
-/* Show/hide back to top button on scroll */
-<script>
-  const backToTopBtn = document.querySelector('.floating-back-to-top');
-  
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-  }
-</script>
-
 /* Responsive */
 @media (max-width: 1024px) {
   .cta-inner {
