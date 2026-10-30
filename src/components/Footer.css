@@ -151,7 +151,7 @@
 }
 
 /* =========================================
-   MOBILE ADJUSTMENTS (Whatnot 2-Column Style)
+   MOBILE ADJUSTMENTS (Whatnot Style)
    ========================================= */
 @media (max-width: 900px) {
   .footer-main {
@@ -160,35 +160,49 @@
   }
 
   .footer-links {
-    /* FORCE 2 columns on all mobile devices */
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 1rem;
   }
 
+  /* Align logo to left margin */
+  .footer-brand {
+    justify-content: flex-start;
+  }
+
+  /* Align socials to left margin */
+  .footer-social {
+    justify-content: flex-start;
+  }
+
+  /* Bottom section - horizontal layout */
   .footer-bottom {
     flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
+    align-items: flex-start; /* Left align */
+    gap: 1rem;
+    padding-top: 2rem;
   }
 
   .footer-bottom-left {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row; /* Horizontal arrangement */
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
   }
 
-  .footer-social {
-    justify-content: center;
+  .copyright,
+  .footer-link,
+  .language-selector {
+    display: inline-flex;
   }
 }
 
-/* Small Mobile - KEEP 2 columns, just optimize spacing */
+/* Small Mobile */
 @media (max-width: 480px) {
   .site-footer {
     padding: 3rem 0 1.5rem;
   }
 
   .footer-links {
-    /* STILL 2 columns, but with tighter horizontal gap */
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem 0.5rem;
   }
@@ -202,7 +216,36 @@
     font-size: 0.8rem;
   }
   
+  /* Keep logo left-aligned */
   .footer-brand {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  /* Keep socials left-aligned */
+  .footer-social {
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  /* Bottom section - compact horizontal layout */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .footer-bottom-left {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+
+  .footer-link,
+  .language-selector {
+    font-size: 0.75rem;
   }
 }
