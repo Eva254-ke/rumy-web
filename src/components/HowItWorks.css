@@ -1,4 +1,4 @@
-/* HowItWorks.css - Fixed: Content Fully Visible */
+/* HowItWorks.css - Mobile Compatible with Phone Background */
 
 :root {
   --hiw-bg: #0a0a0a;
@@ -21,7 +21,6 @@
   padding: 80px 4vw 40px;
   background: var(--hiw-bg);
 }
-
 
 /* Background Video */
 .hiw-bg-video {
@@ -223,6 +222,7 @@
   font-weight: 600;
   color: var(--hiw-text);
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.4s var(--spring-bounce);
   z-index: 100;
   animation: fadeSlideUp 1s var(--spring-smooth) 0.5s both;
@@ -293,7 +293,9 @@ header.header-dark .btn-outline:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Responsive */
+/* =========================================
+   TABLET RESPONSIVE
+   ========================================= */
 @media (max-width: 1024px) {
   .hiw-container {
     grid-template-columns: 1fr;
@@ -319,21 +321,65 @@ header.header-dark .btn-outline:hover {
   }
 }
 
+/* =========================================
+   MOBILE RESPONSIVE - Phone as Background
+   ========================================= */
 @media (max-width: 768px) {
   .how-it-works {
-    padding: 60px 3vw 30px;
+    padding: 60px 5vw 30px;
+    min-height: auto;
   }
   
+  .hiw-container {
+    position: relative;
+  }
+  
+  /* Show phone as background element on mobile */
   .hiw-bg-phone {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    animation: phoneFloatMobile 10s ease-in-out infinite;
+  }
+  
+  @keyframes phoneFloatMobile {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.85) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) scale(0.85) rotate(2deg); }
+  }
+  
+  .bg-phone-frame {
+    width: 280px;
+    height: 560px;
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hiw-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .hiw-headline {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
   .hiw-lead {
     font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
   }
   
   .qr-link img {
@@ -344,6 +390,52 @@ header.header-dark .btn-outline:hover {
   .more-button {
     padding: 12px 24px;
     font-size: 0.875rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+@media (max-width: 480px) {
+  .how-it-works {
+    padding: 50px 4vw 25px;
+  }
+  
+  .hiw-bg-phone {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+  
+  @keyframes phoneFloatMobile {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.75) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) scale(0.75) rotate(2deg); }
+  }
+  
+  .bg-phone-frame {
+    width: 240px;
+    height: 480px;
+  }
+  
+  .hiw-content {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .hiw-headline {
+    font-size: 1.75rem;
+  }
+  
+  .hiw-lead {
+    font-size: 0.9rem;
+  }
+  
+  .qr-link img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .more-button {
+    padding: 10px 20px;
+    font-size: 0.825rem;
   }
 }
 
