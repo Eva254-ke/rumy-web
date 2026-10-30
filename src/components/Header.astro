@@ -4,8 +4,62 @@ import './Header.css';
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo" aria-label="Rumy Cakes home"><img src="/rumy-cakes-logo.png" alt="Rumy Cakes" /><span>Rumy Cakes</span></a>
-    <nav class="main-nav" aria-label="Main navigation"><a href="/become-a-seller">Apply to sell</a><a href="#marketplace">Discover</a></nav>
-    <div class="header-actions"><a href="https://play.google.com/apps/testing/com.rumycakes.app" class="btn btn-primary btn-sm">Download app</a></div>
+    <a href="/" class="logo" aria-label="Rumy Cakes home">
+      <img src="/rumy-cakes-logo.png" alt="Rumy Cakes" />
+      <span>Rumy Cakes</span>
+    </a>
+    
+    <!-- Desktop Nav -->
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/become-a-seller">Apply to sell</a>
+      <a href="#marketplace">Discover</a>
+    </nav>
+    
+    <div class="header-actions">
+      <a href="https://play.google.com/apps/testing/com.rumycakes.app" class="btn btn-primary btn-sm">Download app</a>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a href="/become-a-seller">Apply to sell</a>
+        <a href="#marketplace">Discover</a>
+      </nav>
+      <a href="https://play.google.com/apps/testing/com.rumycakes.app" class="btn btn-primary btn-block">Download app</a>
+    </div>
   </div>
 </header>
+
+<script>
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const body = document.body;
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      menuToggle.classList.toggle('is-active');
+      mobileMenu.classList.toggle('is-open');
+      body.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.classList.remove('is-active');
+        mobileMenu.classList.remove('is-open');
+        body.classList.remove('menu-open');
+      });
+    });
+  }
+</script>
