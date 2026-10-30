@@ -1,7 +1,7 @@
 /* src/components/Footer.css */
 
 .site-footer {
-  background-color: #0A0A0A; /* Deep black background */
+  background-color: #0A0A0A;
   color: #FFFFFF;
   padding: 5rem 0 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -28,6 +28,7 @@
   font-weight: 800;
   color: var(--color-primary);
   letter-spacing: -0.03em;
+  text-decoration: none;
 }
 
 .footer-logo img {
@@ -62,7 +63,7 @@
 }
 
 .footer-column a {
-  color: #94A3B8; /* Light slate for readability */
+  color: #94A3B8;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
@@ -143,7 +144,7 @@
   transform: translateY(-2px);
 }
 
-/* Mobile Adjustments */
+/* Mobile Adjustments - 2 Column Layout */
 @media (max-width: 900px) {
   .footer-main {
     grid-template-columns: 1fr;
@@ -151,7 +152,7 @@
   }
 
   .footer-links {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     gap: 2rem;
   }
 
@@ -171,8 +172,18 @@
   }
 }
 
-@media (max-width: 600px) {
+/* Small Mobile - Stack to 1 column if needed */
+@media (max-width: 480px) {
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack on very small screens */
+    gap: 2rem;
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
+  
+  .footer-brand {
+    justify-content: center;
   }
 }
