@@ -441,12 +441,10 @@
   /* Hide right image on mobile */
   .hero-image-right { display: none; }
   
-  /* Button: Fixed at bottom, always visible */
+  /* Button: Inside hero, not fixed */
   .glass-button {
-    position: fixed;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 0 auto 1.5rem;
     padding: 10px 22px;
     font-size: 0.82rem;
     gap: 6px;
@@ -494,6 +492,6 @@
   .glass-button {
     padding: 9px 18px;
     font-size: 0.78rem;
-    bottom: 12px;
+    margin-bottom: 1rem;
   }
 }
