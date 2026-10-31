@@ -1,4 +1,4 @@
-/* HowItWorks.css - Mobile Compatible with Phone Background */
+/* HowItWorks.css - Mobile: No borders, seamless scroll */
 
 :root {
   --hiw-bg: #0a0a0a;
@@ -11,7 +11,7 @@
 
 .how-it-works {
   position: relative;
-  scroll-margin-top: 84px;
+  scroll-margin-top: 0; /* No scroll margin */
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
@@ -322,27 +322,25 @@ header.header-dark .btn-outline:hover {
 }
 
 /* =========================================
-   MOBILE RESPONSIVE - Full screen like Hero
+   MOBILE - NO BORDERS, SEAMLESS SCROLL
    ========================================= */
 @media (max-width: 768px) {
   .how-it-works {
-    padding: 0;
+    padding: 60px 5vw 30px;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
   }
   
   .hiw-container {
     position: relative;
-    padding: 0 5vw;
+    padding: 0;
   }
   
-  /* Show phone as background element on mobile */
+  /* Phone as background element - NO BORDERS */
   .hiw-bg-phone {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.85);
     opacity: 0.25;
     z-index: 0;
     pointer-events: none;
@@ -350,15 +348,41 @@ header.header-dark .btn-outline:hover {
   }
   
   @keyframes phoneFloatMobile {
-    0%, 100% { transform: translate(-50%, -50%) scale(0.9) rotate(-2deg); }
-    50% { transform: translate(-50%, -50%) scale(0.9) rotate(2deg); }
+    0%, 100% { transform: translate(-50%, -50%) scale(0.85) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) scale(0.85) rotate(2deg); }
   }
   
   .bg-phone-frame {
-    width: 280px;
-    height: 560px;
+    width: 260px;
+    height: 520px;
+    background: transparent; /* NO BACKGROUND */
+    border-radius: 0; /* NO ROUNDED CORNERS */
+    box-shadow: none; /* NO SHADOW */
+    border: none; /* NO BORDER */
   }
   
+  .bg-phone-notch {
+    display: none; /* Hide notch on mobile */
+  }
+  
+  .bg-phone-video {
+    border-radius: 0;
+    filter: brightness(0.8) saturate(0.9);
+  }
+  
+  .bg-viewer-badge {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.6rem;
+    padding: 4px 10px;
+  }
+  
+  .bg-live-dot {
+    width: 5px;
+    height: 5px;
+  }
+  
+  /* Content at top */
   .hiw-content {
     position: relative;
     z-index: 2;
@@ -366,25 +390,30 @@ header.header-dark .btn-outline:hover {
     background: rgba(10, 10, 10, 0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem 1.5rem;
+    border-radius: 0; /* NO ROUNDED CORNERS */
+    border: none; /* NO BORDER */
   }
   
   .hiw-headline {
-    font-size: 2rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
   }
   
   .hiw-lead {
-    font-size: 1rem;
-    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
     max-width: 100%;
   }
   
   .qr-link img {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Hide More button on mobile */
+  .more-button {
+    display: none;
   }
 }
 
@@ -393,51 +422,39 @@ header.header-dark .btn-outline:hover {
    ========================================= */
 @media (max-width: 480px) {
   .how-it-works {
-    padding: 0;
-  }
-  
-  .hiw-container {
-    padding: 0 4vw;
+    padding: 50px 4vw 25px;
   }
   
   .hiw-bg-phone {
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.75);
   }
   
   @keyframes phoneFloatMobile {
-    0%, 100% { transform: translate(-50%, -50%) scale(0.8) rotate(-2deg); }
-    50% { transform: translate(-50%, -50%) scale(0.8) rotate(2deg); }
+    0%, 100% { transform: translate(-50%, -50%) scale(0.75) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) scale(0.75) rotate(2deg); }
   }
   
   .bg-phone-frame {
-    width: 240px;
-    height: 480px;
+    width: 220px;
+    height: 440px;
   }
   
   .hiw-content {
-    padding: 2.5rem 1.5rem;
-    border-radius: 20px;
+    padding: 2rem 1.25rem;
   }
   
   .hiw-headline {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
   
   .hiw-lead {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
   }
   
   .qr-link img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* Hide More button on mobile */
-@media (max-width: 768px) {
-  .more-button {
-    display: none;
+    width: 90px;
+    height: 90px;
   }
 }
 
