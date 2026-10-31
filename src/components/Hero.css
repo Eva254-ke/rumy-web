@@ -441,10 +441,10 @@
   /* Hide right image on mobile */
   .hero-image-right { display: none; }
   
-  /* Button: Inside hero, not fixed */
+  /* Button: At bottom of hero with spacing from QR */
   .glass-button {
     position: relative;
-    margin: 0 auto 1.5rem;
+    margin: 2rem auto 0;
     padding: 10px 22px;
     font-size: 0.82rem;
     gap: 6px;
@@ -492,6 +492,6 @@
   .glass-button {
     padding: 9px 18px;
     font-size: 0.78rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
   }
 }
