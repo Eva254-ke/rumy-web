@@ -95,6 +95,12 @@
   gap: 1.5rem;
 }
 
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .copyright {
   font-size: 0.8rem;
   color: #64748B;
@@ -172,7 +178,7 @@
   /* Bottom section setup */
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start; /* Left align everything */
+    align-items: flex-start;
     gap: 1.5rem;
   }
 
@@ -182,13 +188,33 @@
     justify-content: flex-start;
   }
 
-  /* 2. Copyright row comes SECOND, arranged horizontally */
+  /* 2. Copyright row comes SECOND */
   .footer-bottom-left {
     order: 2;
     flex-direction: row;
-    flex-wrap: wrap; /* Allows wrapping on very small screens */
+    flex-wrap: wrap;
     gap: 0.5rem 1rem;
     align-items: center;
+  }
+
+  /* 3. Language selector below them, left aligned */
+  .footer-bottom-left .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #64748B;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-top: 0.5rem;
+  }
+
+  .footer-bottom-left .language-selector:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-bottom-left .language-selector svg {
+    stroke: currentColor;
   }
 }
 
@@ -235,9 +261,23 @@
     gap: 0.5rem 0.75rem;
   }
 
-  .copyright,
-  .footer-link,
-  .language-selector {
+  /* Language selector below them, left aligned */
+  .footer-bottom-left .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.75rem;
+    color: #64748B;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-top: 0.5rem;
+  }
+
+  .footer-bottom-left .language-selector:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-bottom-left .language-selector svg {
+    stroke: currentColor;
   }
 }
