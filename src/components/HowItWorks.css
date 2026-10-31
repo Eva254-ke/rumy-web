@@ -439,6 +439,13 @@ header.header-dark .btn-outline:hover {
   }
 }
 
+/* Hide More button on mobile */
+@media (max-width: 768px) {
+  .more-button {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
