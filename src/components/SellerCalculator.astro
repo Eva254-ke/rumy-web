@@ -1,0 +1,44 @@
+---
+import './SellerCalculator.css';
+---
+
+<section class="seller-calculator">
+  <div class="seller-calculator-content">
+    <p class="eyebrow">Grow with every order</p>
+    <h2>Your monthly sales can unlock better rates.</h2>
+    <p>Enter an estimate to see an example of how a volume-based seller rate could work for your bakery.</p>
+  </div>
+
+  <div class="seller-calculator-form">
+    <label for="sales">Estimated monthly cake sales <output id="sales-output">KES 50,000</output></label>
+    <input id="sales" type="range" min="10000" max="500000" value="50000" step="5000" />
+    <div class="rate-result">
+      <span>Your illustrative service rate</span>
+      <strong id="rate-output">7%</strong>
+      <small id="tier-output">Starting baker tier</small>
+    </div>
+    <div class="rate-scale">
+      <span>KES 10k</span>
+      <span>KES 500k+</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  const sales = document.querySelector('#sales');
+  const salesOutput = document.querySelector('#sales-output');
+  const rateOutput = document.querySelector('#rate-output');
+  const tierOutput = document.querySelector('#tier-output');
+  
+  const updateRate = () => {
+    if (!sales || !salesOutput || !rateOutput || !tierOutput) return;
+    const value = Number(sales.value);
+    const rate = value >= 300000 ? 5 : value >= 150000 ? 6 : 7;
+    salesOutput.value = `KES ${value.toLocaleString('en-KE')}`;
+    rateOutput.textContent = `${rate}%`;
+    tierOutput.textContent = rate === 5 ? 'Established bakery tier' : rate === 6 ? 'Growing bakery tier' : 'Starting baker tier';
+  };
+  
+  sales?.addEventListener('input', updateRate);
+  updateRate();
+</script>

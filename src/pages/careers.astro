@@ -1,0 +1,39 @@
+---
+// src/pages/careers.astro
+import CareersHeader from '../components/CareersHeader.astro';
+import CareersHero from '../components/CareersHero.astro';
+import CareersMission from '../components/CareersMission.astro';
+import CareersRoles from '../components/CareersRoles.astro';
+import CareersProcess from '../components/CareersProcess.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../components/CareersHeader.css';
+import '../components/CareersHero.css';
+import '../components/CareersMission.css';
+import '../components/CareersRoles.css';
+import '../components/CareersProcess.css';
+import '../components/Footer.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers | Rumy Cakes</title>
+    <meta name="description" content="Join Rumy Cakes - Empower local bakers and bring people together through the joy of live, artisanal baking." />
+  </head>
+  <body>
+    
+    <CareersHeader />
+    
+    <main>
+      <CareersHero />
+      <CareersMission />
+      <CareersRoles />
+      <CareersProcess />
+    </main>
+
+    <Footer />
+
+  </body>
+</html>

@@ -1,0 +1,127 @@
+/* SellerPayout.css - Apple Design Principles */
+
+.seller-payout {
+  background: #fff;
+  padding: 12rem 0;
+  position: relative;
+}
+
+.seller-payout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(157, 23, 77, 0.2), transparent);
+}
+
+.seller-payout-content {
+  max-width: 1120px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.seller-payout-content .eyebrow {
+  color: #9d174d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.seller-payout-content h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #231d1b;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.1s;
+}
+
+.seller-payout-content > p {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #645c58;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.2s;
+}
+
+.seller-payout-example {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  border: 1px solid #e5e0dc;
+  border-radius: 24px;
+  padding: 3rem;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+.payout-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e5e0dc;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #231d1b;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.payout-row:last-child {
+  border-bottom: none;
+}
+
+.payout-muted {
+  color: #817873;
+  font-weight: 500;
+}
+
+.payout-total {
+  font-size: 1.25rem;
+  color: #9d174d;
+  font-weight: 700;
+  border-top: 2px solid #9d174d;
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+}
+
+.seller-payout-example > p {
+  font-size: 0.85rem;
+  color: #817873;
+  line-height: 1.5;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .seller-payout {
+    padding: 8rem 0;
+  }
+  
+  .seller-payout-example {
+    padding: 2rem;
+  }
+  
+  .payout-row {
+    font-size: 1.05rem;
+  }
+}

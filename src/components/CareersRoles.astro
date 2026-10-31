@@ -1,0 +1,75 @@
+---
+// src/components/CareersRoles.astro
+import './CareersRoles.css';
+
+const jobs = [
+  {
+    id: 'technical-operations',
+    department: 'Technical Operations',
+    title: 'Technical Operations & Implementation Intern',
+    location: 'Nairobi, Kenya',
+    workStyle: 'Field / Hybrid',
+    type: 'Hybrid Internship',
+    description: 'We are looking for a tech-savvy problem solver to act as the bridge between our core engineering team and our bakers. You will be on the ground deploying our technology in real-world kitchen environments, ensuring our live streams run flawlessly.'
+  },
+  {
+    id: 'product-implementation',
+    department: 'Product',
+    title: 'Product Implementation & Growth Intern',
+    location: 'Nairobi, Kenya',
+    workStyle: 'Field / Hybrid',
+    type: 'Hybrid Internship',
+    description: 'We need a strategic thinker to help us refine the product experience on the ground. You will work directly with bakers to implement new features, analyze how they use the app, and drive technical adoption.'
+  }
+];
+---
+
+<section class="careers-roles" id="open-roles">
+  <div class="roles-container">
+    
+    <div class="roles-header">
+      <span class="section-label">Join the Team</span>
+      <h2>Open Roles</h2>
+      <p>Help us build the future of live commerce. We are looking for driven individuals ready to make a real impact.</p>
+    </div>
+
+    <div class="roles-list">
+      {jobs.map(job => (
+        <article class="role-card">
+          <div class="role-content">
+            <div class="role-badges">
+              <span class="pill pill-department">{job.department}</span>
+              <span class="pill pill-meta">{job.location}</span>
+              <span class="pill pill-meta">{job.workStyle}</span>
+            </div>
+            
+            <h3 class="role-title">{job.title}</h3>
+            <p class="role-description">{job.description}</p>
+          </div>
+          
+          <div class="role-action">
+            <a href={`/careers/${job.id}`} class="btn-view-details">
+              <span>View Details & Apply</span>
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="roles-footer">
+      <p>Don't see a role that fits? We are always looking for talented individuals.</p>
+      <a href="mailto:careers@rumycakes.com?subject=General Application" class="link-accent">
+        Send us your CV anyway 
+        <svg class="arrow-small" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

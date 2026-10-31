@@ -1,0 +1,322 @@
+---
+// src/pages/careers/[id].astro
+import CareersHeader from '../../components/CareersHeader.astro';
+import '../../styles/global.css';
+import '../../components/CareersHeader.css';
+
+export function getStaticPaths() {
+  // Define jobs INSIDE getStaticPaths so it can access it
+  const jobs = [
+    {
+      id: 'technical-operations',
+      department: 'Technical Operations',
+      title: 'Technical Operations & Implementation Intern',
+      location: 'Nairobi, Kenya (Field/Hybrid)',
+      type: 'Hybrid Internship',
+      description: 'We are looking for a tech-savvy problem solver to act as the bridge between our core engineering team and our bakers. You will be on the ground deploying our technology in real-world kitchen environments, ensuring our live streams run flawlessly.',
+      responsibilities: [
+        'Visit partner baker locations to set up and configure the Rumy Cakes app for live streaming',
+        'Troubleshoot real-time technical issues during live broadcasts (audio, video, network)',
+        'Train bakers on the technical aspects of the platform, including dashboard and inventory management',
+        'Gather detailed technical feedback and bug reports from bakers to relay to the core engineering team',
+        'Optimize the physical setup (lighting, camera angles, device placement) for the best streaming quality',
+        'Document standard operating procedures for onboarding new baker locations'
+      ],
+      requirements: [
+        'Currently pursuing or recently completed a degree in Computer Science, IT, or related technical field',
+        'Strong understanding of mobile applications, Android OS, and basic networking',
+        'Excellent problem-solving skills and ability to think on your feet',
+        'Great communication skills to explain technical concepts to non-technical bakers',
+        'Willingness to travel within Nairobi to visit baker locations',
+        'A hands-on, roll-up-your-sleeves attitude'
+      ],
+      benefits: [
+        'Gain real-world experience in technical deployment and client-facing engineering',
+        'Direct mentorship from the technical founder on product architecture',
+        'Flexible schedule balancing field work and remote reporting',
+        'Build a strong professional network in the Nairobi tech and food ecosystem',
+        'Potential for equity/ownership as the company scales',
+        'Official university attachment sign-off and strong recommendation letter'
+      ]
+    },
+    {
+      id: 'product-implementation',
+      department: 'Product',
+      title: 'Product Implementation & Growth Intern',
+      location: 'Nairobi, Kenya (Field/Hybrid)',
+      type: 'Hybrid Internship',
+      description: 'We need a strategic thinker to help us refine the product experience on the ground. You will work directly with bakers to implement new features, analyze how they use the app, and drive technical adoption.',
+      responsibilities: [
+        'Assist in the rollout and testing of new app features directly with baker partners',
+        'Analyze live stream performance data and baker engagement metrics',
+        'Help bakers optimize their digital storefronts, product listings, and pricing strategies',
+        'Conduct on-ground user research and usability testing with both bakers and buyers',
+        'Identify friction points in the baker onboarding flow and propose product improvements',
+        'Collaborate with the technical team to prioritize the product roadmap based on field data'
+      ],
+      requirements: [
+        'Currently pursuing or recently completed a degree in Business, Product Management, or related field',
+        'Strong analytical skills and comfort working with data and metrics',
+        'Understanding of mobile app user experience (UX) and e-commerce flows',
+        'Excellent interpersonal skills and ability to build relationships with small business owners',
+        'Self-motivated and able to manage independent field projects',
+        'Passion for food tech, live commerce, and startup growth'
+      ],
+      benefits: [
+        'Hands-on experience in product management and go-to-market strategy',
+        'Direct influence on the product roadmap and feature development',
+        'Flexible working hours around your university schedule',
+        'Performance-based incentives and potential for equity',
+        'Deep dive into the mechanics of a two-sided marketplace',
+        'Official university attachment sign-off and reference letter'
+      ]
+    }
+  ];
+
+  return jobs.map(job => ({
+    params: { id: job.id },
+    props: { job },
+  }));
+}
+
+// Now we can safely extract the job from Astro.props
+const { job } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{job.title} | Rumy Cakes</title>
+  </head>
+  <body>
+    <CareersHeader />
+    
+    <main class="job-detail-page">
+      <div class="container job-detail-container">
+        
+        <a href="/careers#open-roles" class="back-link">&larr; Back to all jobs</a>
+        
+        <div class="job-detail-header">
+          <span class="job-department">{job.department}</span>
+          <h1>{job.title}</h1>
+          <div class="job-meta-large">
+            <span>{job.location}</span>
+            <span>{job.type}</span>
+          </div>
+        </div>
+
+        <div class="job-detail-content">
+          <section class="detail-section">
+            <h2>About the Role</h2>
+            <p>{job.description}</p>
+          </section>
+
+          <section class="detail-section">
+            <h2>Responsibilities</h2>
+            <ul class="detail-list">
+              {job.responsibilities.map(resp => (
+                <li>{resp}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="detail-section">
+            <h2>Requirements</h2>
+            <ul class="detail-list">
+              {job.requirements.map(req => (
+                <li>{req}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="detail-section benefits">
+            <h2>Benefits & Perks</h2>
+            <ul class="benefits-list">
+              {job.benefits.map(benefit => (
+                <li>{benefit}</li>
+              ))}
+            </ul>
+          </section>
+
+          <div class="apply-section">
+            <h2>Ready to apply?</h2>
+            <p>Send your CV and a brief cover letter to careers@rumycakes.com with the subject line matching the role.</p>
+            <a href={`mailto:careers@rumycakes.com?subject=Application: ${encodeURIComponent(job.title)}`} class="btn-apply-large">
+              Apply for this position
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .job-detail-page {
+    background: white;
+    padding: 6rem 0 8rem;
+    min-height: 100vh;
+  }
+
+  .job-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+
+  .job-detail-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .job-department {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .job-detail-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .job-meta-large {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+  }
+
+  .job-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .detail-section h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .detail-list li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+  }
+
+  .benefits .benefits-list li {
+    padding-left: 0;
+  }
+
+  .benefits .benefits-list li::before {
+    display: none;
+  }
+
+  .apply-section {
+    background: var(--color-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .apply-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .apply-section p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .btn-apply-large {
+    display: inline-block;
+    padding: 1.25rem 3rem;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-apply-large:hover {
+    background: #7a123c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(157, 23, 77, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .job-detail-header h1 {
+      font-size: 2rem;
+    }
+    
+    .job-meta-large {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .apply-section {
+      padding: 2rem;
+    }
+  }
+</style>

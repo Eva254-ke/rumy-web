@@ -1,11 +1,21 @@
 ---
 // src/pages/become-a-seller.astro
 import Header from '../components/Header.astro';
-import Seller from '../components/Seller.astro';
+import SellerHero from '../components/SellerHero.astro';
+import SellerFees from '../components/SellerFees.astro';
+import SellerCalculator from '../components/SellerCalculator.astro';
+import SellerPayout from '../components/SellerPayout.astro';
+import SellerFAQ from '../components/SellerFAQ.astro';
+import SellerApply from '../components/SellerApply.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import '../components/Header.css';
-import '../components/Seller.css';
+import '../components/SellerHero.css';
+import '../components/SellerFees.css';
+import '../components/SellerCalculator.css';
+import '../components/SellerPayout.css';
+import '../components/SellerFAQ.css';
+import '../components/SellerApply.css';
 import '../components/Footer.css';
 ---
 
@@ -15,15 +25,22 @@ import '../components/Footer.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/rumy-cakes-logo.png" />
     <title>Become a Seller | Rumy Cakes</title>
+    <meta name="description" content="Join Rumy Cakes as a seller - Keep more of what you bake with transparent pricing and live baking tools." />
   </head>
   <body>
     
     <Header />
     
     <main>
-      <Seller />
+      <SellerHero />
+      <SellerFees />
+      <SellerCalculator />
+      <SellerPayout />
+      <SellerFAQ />
+      <SellerApply />
     </main>
 
     <Footer />
+
   </body>
 </html>

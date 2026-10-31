@@ -1,0 +1,192 @@
+/* CareersProcess.css - Apple Design Principles */
+
+.careers-process {
+  background: #faf8f5;
+  padding: 10rem 0;
+  position: relative;
+}
+
+.process-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d97706;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.process-header h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.process-header p {
+  font-size: 1.15rem;
+  color: #424245;
+  line-height: 1.65;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Steps Grid */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+/* Optional: Subtle connecting line for desktop */
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  border: 2px dashed rgba(157, 23, 77, 0.15);
+  border-radius: 24px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(157, 23, 77, 0.08);
+  border-color: rgba(157, 23, 77, 0.2);
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(157, 23, 77, 0.08);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.step-content h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
+}
+
+.step-timeline {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.step-content p {
+  font-size: 1.05rem;
+  color: #424245;
+  line-height: 1.65;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+/* Bottom CTA */
+.process-cta {
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+  animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+.process-cta p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 1.5rem;
+}
+
+.btn-process-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: #9d174d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-process-primary:hover {
+  background: #82123f;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(157, 23, 77, 0.25);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .careers-process {
+    padding: 6rem 0;
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .process-steps::before {
+    display: none;
+  }
+
+  .process-step {
+    padding: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-step,
+  .btn-process-primary {
+    transition: none;
+  }
+}
