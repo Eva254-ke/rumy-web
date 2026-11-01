@@ -132,16 +132,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2rem;
+  padding: 0.6rem 1.25rem;
   background: #1d1d1f;
   color: #ffffff;
   text-decoration: none;
   border-radius: 999px;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.85rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  min-height: 48px; /* Apple's minimum touch target for mobile */
+  min-height: 36px; /* Apple premium compact size */
 }
 
 .btn-process-primary:hover {
@@ -177,7 +177,8 @@
 
   .btn-process-primary {
     width: 100%;
-    font-size: 1.05rem;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.25rem;
   }
 }
 
