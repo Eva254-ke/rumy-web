@@ -1,9 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
 const jobs = {
   'technical-operations': { department:'Technical Operations', title:'Technical Operations & Implementation Intern', location:'Nairobi, Kenya · Field / Hybrid', description:'Help bring practical digital tools to baking businesses while learning how thoughtful technology reaches real customers.', responsibilities:['Support the rollout of baking-business tools with partner bakers','Document feedback and identify opportunities to improve the experience','Help create clear onboarding and support resources'], requirements:['Curious, practical and comfortable solving problems','Interest in technology, business or operations','Confident communicating with people from different backgrounds'] },
   'product-implementation': { department:'Product', title:'Product Implementation & Growth Intern', location:'Nairobi, Kenya · Field / Hybrid', description:'Work closely with bakers to understand their needs, test ideas and help shape how the Rumy Cakes App grows.', responsibilities:['Assist with product rollouts and learner feedback','Help partners organise product information and customer journeys','Turn observations into clear ideas for the product team'], requirements:['Curious about products, people and small business growth','Comfortable learning from real customer conversations','Self-directed, organised and kind'] }
 };
+
+export const getStaticPaths = () => {
+  return Object.keys(jobs).map((id) => ({
+    params: { id },
+  }));
+};
+
 const job = jobs[Astro.params.id as keyof typeof jobs];
 if (!job) return Astro.redirect('/careers');
 ---
