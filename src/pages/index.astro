@@ -1,40 +1,540 @@
 ---
-// src/pages/index.astro
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Features from '../components/Features.astro';
-import FinalCTA from '../components/FinalCTA.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-import '../components/Header.css';
-import '../components/Hero.css';
-import '../components/HowItWorks.css';
-import '../components/Features.css';
-import '../components/FinalCTA.css';
-import '../components/Footer.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/rumy-cakes-logo.png" />
-    <meta name="description" content="Rumy Cakes - Watch bakers create artisanal cakes live, chat in real-time, and order fresh treats delivered to your door." />
-    <title>Rumy Cakes | The Bakery is Live</title>
-  </head>
-  <body>
+<Layout title="Rumy Cakes & Accessories | We Bake. We Train. We Supply." description="Beautiful cakes, baking training, accessories and the Rumy Cakes App in Ruiru, Kenya.">
+  
+  <!-- 1. Premium Hero Section -->
+  <section class="hero-premium" data-spring-scene>
+    <div class="hero-inner" data-spring-reveal>
+      <span class="section-label">Rumy Cakes & Accessories</span>
+      <h1 class="display-hero">
+        Crafting beautiful cakes.<br />
+        <em>Empowering ambitious bakers.</em>
+      </h1>
+      <p class="hero-lead">
+        From custom celebration cakes to hands-on training and modern business tools, we provide everything you need to bake, learn, and grow in Ruiru and beyond.
+      </p>
+      <div class="hero-actions">
+        <a class="button-primary" href="/orders">Order a celebration cake</a>
+        <a class="link-secondary" href="/training">Explore the academy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Alternating Feature Rows (Apple-Style) -->
+  <section class="features-container">
     
-    <Header />
+    <!-- Feature 1: We Bake -->
+    <div class="feature-row" data-reveal style="--delay: 0s;">
+      <div class="feature-visual">
+        <img src="https://i.ibb.co/ZRDF36vN/image.png" alt="Beautifully decorated celebration cake" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">We Bake</span>
+        <h2 class="feature-heading">Masterpieces for every milestone.</h2>
+        <p class="feature-text">Beautiful, custom-designed cakes for birthdays, weddings, graduations, and all the moments in between. Baked with precision and decorated with care.</p>
+        <a href="/orders" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Order a cake</a>
+      </div>
+    </div>
 
-    <main>
-      <Hero />
-      <HowItWorks />
-      <Features />
-      <FinalCTA />
-    </main>
+    <!-- Feature 2: We Train (Alternating) -->
+    <div class="feature-row alt-bg" data-reveal style="--delay: 0.1s;">
+      <div class="feature-visual">
+        <img src="https://i.ibb.co/HL8f44rX/image.png" alt="Hands-on baking training session" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">We Train</span>
+        <h2 class="feature-heading">Turn passion into a profession.</h2>
+        <p class="feature-text">Practical, hands-on classes for aspiring and practising bakers through the Rumy Baking Academy. Learn from industry professionals in a supportive environment.</p>
+        <a href="/training" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Explore classes</a>
+      </div>
+    </div>
 
-    <Footer />
+    <!-- Feature 3: We Supply -->
+    <div class="feature-row" data-reveal style="--delay: 0.2s;">
+      <div class="feature-visual">
+        <img src="https://i.ibb.co/mrY2ZV38/image.png" alt="Premium baking tools and accessories" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">We Supply</span>
+        <h2 class="feature-heading">Professional tools, accessible to all.</h2>
+        <p class="feature-text">High-quality decorating tools, baking essentials, and accessories that make creative, professional-grade baking possible in your own kitchen.</p>
+        <a href="/accessories" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Shop smarter</a>
+      </div>
+    </div>
 
-  </body>
-</html>
+    <!-- Feature 4: We Innovate (App) -->
+    <div class="feature-row alt-bg" data-reveal style="--delay: 0.3s;">
+      <div class="feature-visual phone-visual">
+        <!-- Integrated CSS Phone Mockup for the App -->
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <small>Rumy Cakes App</small>
+            <h3>Business, organised.</h3>
+            <div class="phone-row"><span>Today's sales</span><strong>KES 12,480</strong></div>
+            <div class="phone-row"><span>Low stock</span><strong class="warning">3 items</strong></div>
+            <div class="phone-row"><span>This month</span><strong class="link">View report →</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-content">
+        <span class="section-label">We Innovate</span>
+        <h2 class="feature-heading">Your bakery, beautifully managed.</h2>
+        <p class="feature-text">Record sales, track expenses, and manage stock with the Rumy Cakes App. A simpler, calmer way to handle the moving parts of your baking business.</p>
+        <a href="/app" class="link-arrow">Discover the app</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 3. Story / Quote Section -->
+  <section class="story-section" data-reveal>
+    <div class="story-inner">
+      <span class="section-label">Our Philosophy</span>
+      <h2 class="display-small">"We believe a practical skill can be the beginning of something life-changing."</h2>
+      <p class="hero-lead">Rumy Cakes was created to make quality baking more accessible, nurture talent, and help baking enterprises grow. Today, we create memorable cakes, teach practical skills, supply the essentials, and build tools for ambitious bakers.</p>
+      <a href="/about" class="link-arrow">Read our story</a>
+    </div>
+  </section>
+
+  <!-- 4. Final CTA -->
+  <section class="cta-section" data-reveal>
+    <div class="cta-inner">
+      <span class="section-label">Your next sweet idea starts here</span>
+      <h2 class="display-small">Have an occasion to celebrate or a skill to build?</h2>
+      <p class="hero-lead">Our team is ready to help you design the perfect cake or find the right training for your journey.</p>
+      <div class="cta-actions">
+        <a class="button-primary" href="https://wa.me/254792414264?text=Hello%20Rumy%20Cakes%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer">Talk to us on WhatsApp</a>
+        <a class="link-secondary" href="tel:+254792414264">0792 414 264</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* --- Apple-Grade Design System --- */
+  :root {
+    --apple-ink: #1d1d1f;
+    --apple-muted: #86868b;
+    --apple-cream: #fbfbfd;
+    --apple-surface: #f5f5f7; /* Subtle shift for alternating rows */
+    --apple-accent: #b02e4f;
+    --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* --- Base Typography --- */
+  .section-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--apple-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .display-hero {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
+  }
+
+  .display-hero em {
+    color: var(--apple-accent);
+    font-style: italic;
+  }
+
+  .display-small {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
+  }
+
+  .hero-lead, .feature-text {
+    font-size: clamp(1.125rem, 2vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--apple-muted);
+    max-width: 680px;
+    margin: 0 0 32px;
+  }
+
+  /* --- Hero Section --- */
+  .hero-premium {
+    padding: clamp(80px, 12vw, 160px) 5vw clamp(60px, 8vw, 100px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--apple-cream);
+  }
+
+  .hero-inner {
+    will-change: transform;
+    transform: translate3d(var(--spring-x, 0), var(--spring-y, 0), 0);
+    max-width: 900px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--apple-ink);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 980px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-apple);
+  }
+
+  .button-primary:hover {
+    background: var(--apple-accent);
+    transform: scale(1.02);
+  }
+
+  .link-secondary {
+    color: var(--apple-accent);
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease-apple);
+    padding-bottom: 2px;
+  }
+
+  .link-secondary:hover {
+    border-bottom-color: var(--apple-accent);
+  }
+
+  /* --- Alternating Feature Rows (The Apple Way) --- */
+  .features-container {
+    width: 100%;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    align-items: center;
+    padding: clamp(80px, 10vw, 140px) 5vw;
+    background: var(--apple-cream);
+  }
+
+  /* Alternating Rule: Reverse order for even rows */
+  .feature-row:nth-child(even) {
+    background: var(--apple-surface);
+  }
+  
+  .feature-row:nth-child(even) .feature-visual {
+    order: 2;
+  }
+  
+  .feature-row:nth-child(even) .feature-content {
+    order: 1;
+  }
+
+  .feature-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s var(--ease-apple);
+  }
+
+  .feature-visual img:hover {
+    transform: scale(1.01);
+  }
+
+  .feature-heading {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 20px;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--apple-accent);
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: gap 0.3s var(--ease-apple);
+  }
+
+  .link-arrow::after {
+    content: '→';
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.3s var(--ease-apple);
+  }
+
+  .link-arrow:hover {
+    gap: 12px;
+  }
+
+  .link-arrow:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* --- Phone Mockup (For "We Innovate") --- */
+  .phone-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-mockup {
+    width: 280px;
+    height: 560px;
+    background: var(--apple-ink);
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.6s var(--ease-apple);
+  }
+
+  .phone-mockup:hover {
+    transform: translateY(-8px);
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 24px;
+    background: var(--apple-ink);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--apple-cream);
+    border-radius: 32px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.25rem 1.25rem;
+  }
+
+  .phone-screen small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--apple-accent);
+    font-weight: 700;
+  }
+
+  .phone-screen h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--apple-ink);
+    margin: 0.5rem 0 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .phone-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--apple-ink);
+  }
+
+  .phone-row strong.warning { color: #dc2626; }
+  .phone-row strong.link { color: var(--apple-accent); font-size: 0.8rem; }
+
+  /* --- Story Section --- */
+  .story-section {
+    padding: clamp(80px, 12vw, 140px) 5vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--apple-surface);
+  }
+
+  .story-inner {
+    max-width: 800px;
+  }
+
+  /* --- CTA Section --- */
+  .cta-section {
+    padding: clamp(80px, 12vw, 140px) 5vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--apple-cream);
+  }
+
+  .cta-inner {
+    max-width: 800px;
+    will-change: transform;
+    transform: translate3d(var(--spring-x, 0), var(--spring-y, 0), 0);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  /* --- Animations --- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple);
+    transition-delay: var(--delay, 0s);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-spring-reveal] {
+    animation: spring-arrive 0.9s var(--ease-spring) both;
+  }
+
+  @keyframes spring-arrive {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    60% { opacity: 1; transform: translateY(-4px) scale(1.005); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 900px) {
+    .feature-row {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    /* On mobile, always show image first, then text */
+    .feature-row .feature-visual {
+      order: -1 !important;
+    }
+
+    .feature-row .feature-content {
+      order: 1 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-actions, .cta-actions {
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    
+    .button-primary, .link-secondary {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal], [data-spring-reveal] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .hero-inner, .cta-inner {
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const reveals = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach((element) => observer.observe(element));
+
+  const scenes = document.querySelectorAll('[data-spring-scene]');
+  scenes.forEach((scene) => {
+    const targets = scene.querySelectorAll('.hero-inner, .cta-inner');
+    if (!targets.length || !window.matchMedia('(pointer: fine)').matches) return;
+
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0, frame = 0;
+    
+    const tick = () => {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      
+      targets.forEach((el, index) => {
+        const factor = index === 0 ? 1 : 0.6;
+        const htmlEl = /** @type {HTMLElement} */ (el);
+        htmlEl.style.setProperty('--spring-x', `${currentX * factor}px`);
+        htmlEl.style.setProperty('--spring-y', `${currentY * factor}px`);
+      });
+      
+      frame = requestAnimationFrame(tick);
+    };
+    
+    scene.addEventListener('pointermove', (event) => {
+      const pointerEvent = /** @type {PointerEvent} */ (event);
+      const box = scene.getBoundingClientRect();
+      targetX = ((pointerEvent.clientX - box.left) / box.width - 0.5) * 16;
+      targetY = ((pointerEvent.clientY - box.top) / box.height - 0.5) * 12;
+    });
+    
+    scene.addEventListener('pointerleave', () => {
+      targetX = 0;
+      targetY = 0;
+    });
+    
+    tick();
+    window.addEventListener('pagehide', () => cancelAnimationFrame(frame), { once: true });
+  });
+</script>

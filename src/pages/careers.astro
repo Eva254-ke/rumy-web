@@ -1,41 +1,408 @@
 ---
-// src/pages/careers.astro
-import CareersHeader from '../components/CareersHeader.astro';
-import CareersHero from '../components/CareersHero.astro';
-import CareersMission from '../components/CareersMission.astro';
-import CareersRoles from '../components/CareersRoles.astro';
-import CareersProcess from '../components/CareersProcess.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-import '../components/CareersHeader.css';
-import '../components/CareersHero.css';
-import '../components/CareersMission.css';
-import '../components/CareersRoles.css';
-import '../components/CareersProcess.css';
-import '../components/Footer.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/rumy-cakes-logo.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/rumy-cakes-logo.png" />
-    <title>Careers | Rumy Cakes</title>
-    <meta name="description" content="Join Rumy Cakes - Empower local bakers and bring people together through the joy of live, artisanal baking." />
-  </head>
-  <body>
-    
-    <CareersHeader />
-    
-    <main>
-      <CareersHero />
-      <CareersMission />
-      <CareersRoles />
-      <CareersProcess />
-    </main>
+<Layout title="Careers & Opportunities | Rumy Cakes">
+  
+  <!-- 1. Clean, Typographic Hero -->
+  <section class="hero-careers" data-spring-scene>
+    <div class="hero-inner" data-spring-reveal>
+      <span class="section-label">Careers & Opportunities</span>
+      <h1 class="display-hero">Grow with <em>Rumy Cakes.</em></h1>
+      <p class="hero-lead">We believe in talent, creativity, and continuous learning. If you are passionate about baking and ready to grow, we would love to hear from you.</p>
+    </div>
+  </section>
 
-    <Footer />
+  <!-- 2. Alternating Zigzag Feature Rows (Apple Style) -->
+  <section class="features-container">
+    
+    <!-- Row 1: Creative Talent (Image Left, Text Right) -->
+    <div class="feature-row" data-reveal style="--delay: 0s;">
+      <div class="feature-visual">
+        <!-- Replace src with your actual team/baking image -->
+        <img src="/cake-hero.png" alt="Creative baking talent at work" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">01. Creative Talent</span>
+        <h2 class="feature-heading">Crafting with passion and precision.</h2>
+        <p class="feature-text">We are always looking for talented bakers, decorators, and creative professionals who care deeply about beautiful, high-quality work and want to grow their craft.</p>
+        <a href="/contact" class="link-arrow">Join our team</a>
+      </div>
+    </div>
 
-  </body>
-</html>
+    <!-- Row 2: Teaching & Training (Text Left, Image Right) -->
+    <div class="feature-row alt-bg" data-reveal style="--delay: 0.1s;">
+      <div class="feature-visual">
+        <!-- Replace src with your actual training/academy image -->
+        <img src="/cake-cta.png" alt="Baking academy instruction and training" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">02. Teaching &amp; Training</span>
+        <h2 class="feature-heading">Empowering the next generation.</h2>
+        <p class="feature-text">Share your expertise. We partner with skilled professionals who want to help aspiring bakers learn, practice, and succeed in a supportive, hands-on environment.</p>
+        <a href="/contact" class="link-arrow">Become an instructor</a>
+      </div>
+    </div>
+
+    <!-- Row 3: Partners & Collaborators (Image Left, Text Right) -->
+    <div class="feature-row" data-reveal style="--delay: 0.2s;">
+      <div class="feature-visual">
+        <!-- Replace src with your actual partnership/collaboration image -->
+        <img src="/cake-hero.png" alt="Community and business partnerships" loading="lazy" />
+      </div>
+      <div class="feature-content">
+        <span class="section-label">03. Partners &amp; Collaborators</span>
+        <h2 class="feature-heading">Building meaningful opportunities.</h2>
+        <p class="feature-text">Whether you represent an organization or work independently, we welcome collaborations that expand our reach and create long-term value for the baking community.</p>
+        <a href="/contact" class="link-arrow">Partner with us</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 3. Minimal, Edge-to-Edge CTA -->
+  <section class="cta-section" data-reveal>
+    <div class="cta-inner">
+      <span class="section-label">Start a conversation</span>
+      <h2 class="display-small">Tell us how you would like to grow with us.</h2>
+      <p class="hero-lead">Whether you're an experienced baker, a passionate teacher, or looking for an internship, we'd love to hear from you.</p>
+      <div class="cta-actions">
+        <a class="button-primary" href="/contact">Get in touch</a>
+        <a class="link-secondary" href="tel:+254792414264">0792 414 264</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* --- Apple-Grade Design System Overrides --- */
+  :root {
+    --apple-ink: #1d1d1f;
+    --apple-muted: #86868b;
+    --apple-cream: #fbfbfd;
+    --apple-surface: #f5f5f7;
+    --apple-accent: #b02e4f;
+    --apple-rule: rgba(0, 0, 0, 0.1);
+    --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* --- Base Typography --- */
+  .section-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--apple-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .display-hero {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
+  }
+
+  .display-hero em {
+    color: var(--apple-accent);
+    font-style: italic;
+  }
+
+  .display-small {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
+  }
+
+  .hero-lead, .feature-text {
+    font-size: clamp(1.125rem, 2vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--apple-muted);
+    max-width: 680px;
+    margin: 0 0 32px;
+  }
+
+  /* --- Hero Section --- */
+  .hero-careers {
+    padding: clamp(80px, 12vw, 140px) 5vw clamp(60px, 8vw, 100px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--apple-cream);
+  }
+
+  .hero-inner {
+    will-change: transform;
+    transform: translate3d(var(--spring-x, 0), var(--spring-y, 0), 0);
+    max-width: 900px;
+  }
+
+  /* --- Alternating Zigzag Feature Rows --- */
+  .features-container {
+    width: 100%;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+    align-items: center;
+    padding: clamp(80px, 10vw, 140px) 5vw;
+    background: var(--apple-cream);
+  }
+
+  /* Alternating Rule: Reverse order and change background for even rows */
+  .feature-row.alt-bg {
+    background: var(--apple-surface);
+  }
+  
+  .feature-row.alt-bg .feature-visual {
+    order: 2;
+  }
+  
+  .feature-row.alt-bg .feature-content {
+    order: 1;
+  }
+
+  .feature-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s var(--ease-apple);
+  }
+
+  .feature-visual img:hover {
+    transform: scale(1.01);
+  }
+
+  .feature-heading {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 20px;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--apple-accent);
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: gap 0.3s var(--ease-apple);
+  }
+
+  .link-arrow::after {
+    content: '→';
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.3s var(--ease-apple);
+  }
+
+  .link-arrow:hover {
+    gap: 12px;
+  }
+
+  .link-arrow:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* --- CTA Section --- */
+  .cta-section {
+    padding: clamp(80px, 12vw, 140px) 5vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--apple-surface);
+  }
+
+  .cta-inner {
+    max-width: 800px;
+    will-change: transform;
+    transform: translate3d(var(--spring-x, 0), var(--spring-y, 0), 0);
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--apple-ink);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 980px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-apple);
+  }
+
+  .button-primary:hover {
+    background: var(--apple-accent);
+    transform: scale(1.02);
+  }
+
+  .link-secondary {
+    color: var(--apple-accent);
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease-apple);
+    padding-bottom: 2px;
+  }
+
+  .link-secondary:hover {
+    border-bottom-color: var(--apple-accent);
+  }
+
+  /* --- Animations --- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple);
+    transition-delay: var(--delay, 0s);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-spring-reveal] {
+    animation: spring-arrive 0.9s var(--ease-spring) both;
+  }
+
+  @keyframes spring-arrive {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    60% { opacity: 1; transform: translateY(-4px) scale(1.005); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 900px) {
+    .feature-row {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    /* On mobile, always show image first, then text */
+    .feature-row .feature-visual {
+      order: -1 !important;
+    }
+
+    .feature-row .feature-content {
+      order: 1 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    
+    .button-primary, .link-secondary {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal], [data-spring-reveal] {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .hero-inner, .cta-inner {
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const reveals = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach((element) => observer.observe(element));
+
+  const scenes = document.querySelectorAll('[data-spring-scene]');
+  scenes.forEach((scene) => {
+    const targets = scene.querySelectorAll('.hero-inner, .cta-inner');
+    if (!targets.length || !window.matchMedia('(pointer: fine)').matches) return;
+
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0, frame = 0;
+    
+    const tick = () => {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      
+      targets.forEach((el, index) => {
+        const factor = index === 0 ? 1 : 0.6;
+        const htmlEl = /** @type {HTMLElement} */ (el);
+        htmlEl.style.setProperty('--spring-x', `${currentX * factor}px`);
+        htmlEl.style.setProperty('--spring-y', `${currentY * factor}px`);
+      });
+      
+      frame = requestAnimationFrame(tick);
+    };
+    
+    scene.addEventListener('pointermove', (event) => {
+      const pointerEvent = /** @type {PointerEvent} */ (event);
+      const box = scene.getBoundingClientRect();
+      targetX = ((pointerEvent.clientX - box.left) / box.width - 0.5) * 16;
+      targetY = ((pointerEvent.clientY - box.top) / box.height - 0.5) * 12;
+    });
+    
+    scene.addEventListener('pointerleave', () => {
+      targetX = 0;
+      targetY = 0;
+    });
+    
+    tick();
+    window.addEventListener('pagehide', () => cancelAnimationFrame(frame), { once: true });
+  });
+</script>

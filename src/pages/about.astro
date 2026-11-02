@@ -1,0 +1,316 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Rumy Cakes App | Bake, Manage & Grow">
+  <section class="hero">
+    <div class="container hero-grid">
+      <!-- Left Column: Content -->
+      <div class="hero-content">
+        <span class="eyebrow">Rumy Cakes App</span>
+        <h1>Your baking business.<br /><span class="highlight">Better managed.</span></h1>
+        <p class="lead">Running a baking business involves more than baking. Use one simple platform to understand your sales, track expenses, and stay on top of stock.</p>
+        
+        <!-- Bento-style Feature Grid -->
+        <div class="features-grid">
+          <div class="feature-item"><span class="feature-num">01</span> Sales &amp; transactions</div>
+          <div class="feature-item"><span class="feature-num">02</span> Business expenses</div>
+          <div class="feature-item"><span class="feature-num">03</span> Stock &amp; inventory</div>
+          <div class="feature-item"><span class="feature-num">04</span> Performance records</div>
+        </div>
+
+        <a class="cta-button" href="https://play.google.com/apps/testing/com.rumycakes.app" target="_blank" rel="noreferrer">
+          Explore the app <span class="arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Right Column: Visual (CSS-only Phone Mockup) -->
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-header">
+              <small>Designed for bakers</small>
+              <h3>Spend less time on records.<br />More time baking.</h3>
+            </div>
+            <div class="screen-metrics">
+              <div class="metric-card"><span>Sales</span><strong>Organised</strong></div>
+              <div class="metric-card"><span>Stock</span><strong>Visible</strong></div>
+              <div class="metric-card"><span>Growth</span><strong>Within reach</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-secondary">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Built for every stage</span>
+        <h2>From your first customer to your next big milestone.</h2>
+        <p>Whether you're an upcoming baker, a home baker, or running an established cake business, the Rumy Cakes App brings technology closer to your kitchen.</p>
+      </div>
+      
+      <div class="notice-box">
+        <p><strong>Note:</strong> App availability, supported devices, and final download links will be confirmed before public launch.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* --- 1. Design System Variables --- */
+  :root {
+    --color-bg: #FAFAFA;
+    --color-surface: #FFFFFF;
+    --color-text-primary: #111111;
+    --color-text-secondary: #555555;
+    --color-accent: #E85D4E; /* Warm terracotta/coral, perfect for a baking brand */
+    --color-accent-hover: #D14A3B;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+    --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* --- 2. Base & Typography --- */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  h1, h2 {
+    font-family: var(--font-stack);
+    color: var(--color-text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.02em; /* Apple-style tight tracking for large headings */
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .highlight {
+    color: var(--color-text-secondary); /* Subtle contrast for visual rhythm */
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* --- 3. Hero Layout --- */
+  .hero {
+    padding: 6rem 0;
+    background: var(--color-bg);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+  }
+
+  /* --- 4. Bento-Style Feature Grid --- */
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .feature-item {
+    background: var(--color-surface);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(0,0,0,0.06);
+  }
+
+  .feature-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(232, 93, 78, 0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  /* --- 5. CTA Button with Micro-interaction --- */
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-text-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 100px; /* Premium pill shape */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .cta-button:hover {
+    background: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 93, 78, 0.3);
+  }
+
+  .cta-button .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover .arrow {
+    transform: translate(4px, -4px); /* Arrow moves on hover */
+  }
+
+  /* --- 6. CSS-Only Phone Mockup --- */
+  .phone-mockup {
+    width: 300px;
+    height: 600px;
+    background: var(--color-text-primary);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: var(--shadow-soft), 0 0 0 2px rgba(255,255,255,0.1);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 24px;
+    background: var(--color-text-primary);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--color-surface);
+    border-radius: 32px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .screen-header small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .screen-header h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0.5rem 0 2rem;
+    color: var(--color-text-primary);
+  }
+
+  .screen-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metric-card {
+    background: var(--color-bg);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .metric-card span {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .metric-card strong {
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  /* --- 7. Secondary Section --- */
+  .section-secondary {
+    padding: 6rem 0;
+    background: var(--color-surface);
+    text-align: center;
+  }
+
+  .section-head {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-head p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .notice-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #FFF4E5; /* Warm, subtle info background */
+    color: #8A5A00;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    border-left: 4px solid #FFB347;
+    text-align: left;
+  }
+</style>

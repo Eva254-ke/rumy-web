@@ -1,25 +1,208 @@
 ---
-import './Header.css';
+const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo" aria-label="Rumy Cakes home">
-      <img src="/rumy-cakes-logo.png" alt="Rumy Cakes" />
-      <span>Rumy Cakes</span>
+  <!-- Sleek Announcement Bar -->
+  <div class="announcement">
+    <span>NEW: The Rumy Cakes App is here to help you bake, manage &amp; grow.</span>
+    <a href="/app" class="announcement-link">
+      Discover it <span class="arrow">→</span>
     </a>
-    
-    <!-- Desktop Navigation -->
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="/become-a-seller" target="_self">Apply to sell</a>
-      <a href="#how-it-works" target="_self">How it works</a>
+  </div>
+
+  <!-- Frosted Glass Navigation -->
+  <div class="nav-shell">
+    <a href="/" class="brand" aria-label="Rumy Cakes home">
+      <img src="/rumy-cakes-logo.png" alt="Rumy Cakes Logo" width="36" height="36" />
+      <span class="brand-text">
+        <b>Rumy</b> Cakes
+      </span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="/about" class:active={path === '/about'}>Our story</a>
+      <a href="/orders" class:active={path === '/orders'}>Order a cake</a>
+      <a href="/training" class:active={path === '/training'}>Academy</a>
+      <a href="/accessories" class:active={path === '/accessories'}>Accessories</a>
+      <a href="/app" class:active={path === '/app'}>Rumy App</a>
     </nav>
-    
-    <!-- Action Button (Always Visible) -->
-    <div class="header-actions">
-      <a href="https://play.google.com/apps/testing/com.rumycakes.app" class="btn btn-primary btn-sm">
-        Get the app
-      </a>
-    </div>
+
+    <a class="nav-cta" href="https://wa.me/254792414264?text=Hello%20Rumy%20Cakes%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">
+      Let's talk
+    </a>
   </div>
 </header>
+
+<style>
+  /* --- Apple-Grade Header Styles --- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(251, 251, 253, 0.85); /* --apple-cream with transparency */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background 0.3s ease;
+  }
+
+  /* Announcement Bar */
+  .announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 5vw;
+    background: var(--apple-ink, #1d1d1f);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    flex-wrap: wrap;
+    letter-spacing: 0.01em;
+  }
+
+  .announcement-link {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.3s ease;
+  }
+
+  .announcement-link:hover {
+    opacity: 0.8;
+  }
+
+  .announcement-link .arrow {
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .announcement-link:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  /* Navigation Shell */
+  .nav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Brand */
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--apple-ink, #1d1d1f);
+  }
+
+  .brand img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .brand-text {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .brand-text b {
+    font-weight: 700;
+  }
+
+  /* Nav Links */
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  nav a {
+    font-family: var(--sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--apple-muted, #86868b);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--apple-ink, #1d1d1f);
+  }
+
+  /* Subtle active indicator */
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--apple-accent, #b02e4f);
+    border-radius: 2px;
+  }
+
+  /* CTA Button */
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--apple-ink, #1d1d1f);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 980px; /* Apple's signature pill radius */
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--apple-accent, #b02e4f);
+    transform: scale(1.02);
+  }
+
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 900px) {
+    .nav-shell {
+      height: 56px;
+      padding: 0 5vw;
+    }
+
+    nav {
+      display: none; /* Consider adding a mobile hamburger menu trigger here for production */
+    }
+
+    .brand-text {
+      font-size: 1.1rem;
+    }
+    
+    .announcement {
+      font-size: 0.75rem;
+      padding: 8px 5vw;
+      gap: 6px;
+    }
+    
+    .nav-cta {
+      padding: 8px 16px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
