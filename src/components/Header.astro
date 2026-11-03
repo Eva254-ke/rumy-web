@@ -33,8 +33,9 @@ const path = Astro.url.pathname;
       Let's talk
     </a>
 
-    <!-- Mobile Menu Toggle (Minimalist Hamburger) -->
+    <!-- Mobile Menu Toggle (Standard 3-Line Hamburger) -->
     <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
@@ -208,7 +209,7 @@ const path = Astro.url.pathname;
   }
 
   /* =========================================
-     MINIMALIST MOBILE MENU STYLES
+     MINIMALIST MOBILE MENU STYLES (3-Line Standard)
      ========================================= */
   .mobile-menu-toggle {
     display: none;
@@ -225,11 +226,11 @@ const path = Astro.url.pathname;
     z-index: 1001;
   }
 
-  /* Minimalist 2-line hamburger for a cleaner look */
+  /* Standard 3-line hamburger */
   .hamburger-line {
     display: block;
-    width: 20px;
-    height: 1.5px;
+    width: 24px;
+    height: 2px;
     background-color: var(--ink, #1d1d1f);
     border-radius: 2px;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -302,12 +303,15 @@ const path = Astro.url.pathname;
     font-weight: 500;
   }
 
-  /* Hamburger to 'X' Animation (2 lines) */
+  /* Hamburger to 'X' Animation (Standard 3 lines) */
   .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(1) {
-    transform: translateY(3.75px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
   .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(2) {
-    transform: translateY(-3.75px) rotate(-45deg);
+    opacity: 0;
+  }
+  .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   /* Menu Open State */
