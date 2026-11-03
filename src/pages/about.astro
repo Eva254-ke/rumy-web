@@ -3,29 +3,42 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Rumy Cakes App | Bake, Manage & Grow">
-  <section class="hero">
+  <section class="hero-app">
     <div class="container hero-grid">
+      
       <!-- Left Column: Content -->
-      <div class="hero-content">
-        <span class="eyebrow">Rumy Cakes App</span>
-        <h1>Your baking business.<br /><span class="highlight">Better managed.</span></h1>
-        <p class="lead">Running a baking business involves more than baking. Use one simple platform to understand your sales, track expenses, and stay on top of stock.</p>
+      <div class="hero-content" data-reveal>
+        <span class="section-label">Rumy Cakes App</span>
+        <h1 class="display-hero">Your baking business.<br /><em>Better managed.</em></h1>
+        <p class="hero-lead">Running a baking business involves more than baking. Use one simple platform to understand your sales, track expenses, and stay on top of stock.</p>
         
-        <!-- Bento-style Feature Grid -->
+        <!-- Bento-style Feature Grid (iOS Widget Style on Mobile) -->
         <div class="features-grid">
-          <div class="feature-item"><span class="feature-num">01</span> Sales &amp; transactions</div>
-          <div class="feature-item"><span class="feature-num">02</span> Business expenses</div>
-          <div class="feature-item"><span class="feature-num">03</span> Stock &amp; inventory</div>
-          <div class="feature-item"><span class="feature-num">04</span> Performance records</div>
+          <div class="feature-item">
+            <span class="feature-num">01</span> 
+            <span class="feature-text">Sales &amp; transactions</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-num">02</span> 
+            <span class="feature-text">Business expenses</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-num">03</span> 
+            <span class="feature-text">Stock &amp; inventory</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-num">04</span> 
+            <span class="feature-text">Performance records</span>
+          </div>
         </div>
 
-        <a class="cta-button" href="https://play.google.com/apps/testing/com.rumycakes.app" target="_blank" rel="noreferrer">
-          Explore the app <span class="arrow">↗</span>
+        <a class="button-primary" href="https://play.google.com/apps/testing/com.rumycakes.app" target="_blank" rel="noreferrer">
+          Explore the app <span class="arrow">→</span>
         </a>
       </div>
 
       <!-- Right Column: Visual (CSS-only Phone Mockup) -->
-      <div class="hero-visual">
+      <div class="hero-visual" data-reveal style="--delay: 0.1s;">
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-screen">
@@ -34,22 +47,23 @@ import Layout from '../layouts/Layout.astro';
               <h3>Spend less time on records.<br />More time baking.</h3>
             </div>
             <div class="screen-metrics">
-              <div class="metric-card"><span>Sales</span><strong>Organised</strong></div>
-              <div class="metric-card"><span>Stock</span><strong>Visible</strong></div>
-              <div class="metric-card"><span>Growth</span><strong>Within reach</strong></div>
+              <div class="metric-card"><span>Sales</span><strong class="success">Organised</strong></div>
+              <div class="metric-card"><span>Stock</span><strong class="warning">Visible</strong></div>
+              <div class="metric-card"><span>Growth</span><strong class="link">Within reach →</strong></div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </section>
 
-  <section class="section-secondary">
+  <section class="section-secondary" data-reveal>
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Built for every stage</span>
-        <h2>From your first customer to your next big milestone.</h2>
-        <p>Whether you're an upcoming baker, a home baker, or running an established cake business, the Rumy Cakes App brings technology closer to your kitchen.</p>
+        <span class="section-label">Built for every stage</span>
+        <h2 class="display-small">From your first customer to your next big milestone.</h2>
+        <p class="hero-lead" style="margin: 0 auto;">Whether you're an upcoming baker, a home baker, or running an established cake business, the Rumy Cakes App brings technology closer to your kitchen.</p>
       </div>
       
       <div class="notice-box">
@@ -60,108 +74,105 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* --- 1. Design System Variables --- */
+  /* --- Apple-Grade Design System Overrides --- */
   :root {
-    --color-bg: #FAFAFA;
-    --color-surface: #FFFFFF;
-    --color-text-primary: #111111;
-    --color-text-secondary: #555555;
-    --color-accent: #E85D4E; /* Warm terracotta/coral, perfect for a baking brand */
-    --color-accent-hover: #D14A3B;
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
-    --font-stack: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --apple-ink: #1d1d1f;
+    --apple-muted: #86868b;
+    --apple-cream: #fbfbfd;
+    --apple-surface: #f5f5f7;
+    --apple-accent: #b02e4f;
+    --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* --- 2. Base & Typography --- */
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 5vw;
   }
 
-  .eyebrow {
+  .section-label {
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
+    color: var(--apple-accent);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-accent);
-    margin-bottom: 1rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
   }
 
-  h1, h2 {
-    font-family: var(--font-stack);
-    color: var(--color-text-primary);
-    line-height: 1.1;
-    letter-spacing: -0.02em; /* Apple-style tight tracking for large headings */
-  }
-
-  h1 {
+  .display-hero {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
   }
 
-  h1 .highlight {
-    color: var(--color-text-secondary); /* Subtle contrast for visual rhythm */
+  .display-hero em {
+    color: var(--apple-accent);
+    font-style: italic;
   }
 
-  h2 {
+  .display-small {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--apple-ink);
+    margin: 0 0 24px;
   }
 
-  .lead {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
+  .hero-lead {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--apple-muted);
     max-width: 540px;
-    margin-bottom: 2.5rem;
+    margin: 0 0 32px;
   }
 
-  /* --- 3. Hero Layout --- */
-  .hero {
-    padding: 6rem 0;
-    background: var(--color-bg);
+  /* --- Hero Layout --- */
+  .hero-app {
+    padding: clamp(60px, 10vw, 100px) 0 clamp(60px, 10vw, 120px);
+    background: var(--apple-cream);
   }
 
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
   }
 
   @media (min-width: 900px) {
     .hero-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      gap: 6vw;
     }
   }
 
-  /* --- 4. Bento-Style Feature Grid --- */
+  /* --- Bento-Style Feature Grid (iOS Widget Style) --- */
   .features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
+    gap: 12px;
+    margin-bottom: 32px;
   }
 
   .feature-item {
-    background: var(--color-surface);
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.95rem;
+    background: var(--apple-surface);
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.04);
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--apple-ink);
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.3s var(--ease-apple), box-shadow 0.3s var(--ease-apple);
   }
 
   .feature-item:hover {
@@ -172,145 +183,261 @@ import Layout from '../layouts/Layout.astro';
   .feature-num {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-accent);
-    background: rgba(232, 93, 78, 0.1);
+    color: var(--apple-accent);
+    background: rgba(176, 46, 79, 0.1);
     padding: 4px 8px;
     border-radius: 6px;
+    align-self: flex-start;
   }
 
-  /* --- 5. CTA Button with Micro-interaction --- */
-  .cta-button {
+  .feature-text {
+    line-height: 1.3;
+  }
+
+  /* --- CTA Button --- */
+  .button-primary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: var(--color-text-primary);
+    justify-content: center;
+    gap: 8px;
+    background: var(--apple-ink);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 100px; /* Premium pill shape */
-    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 980px;
+    font-size: 1rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s var(--ease-apple);
   }
 
-  .cta-button:hover {
-    background: var(--color-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(232, 93, 78, 0.3);
+  .button-primary:hover {
+    background: var(--apple-accent);
+    transform: scale(1.02);
   }
 
-  .cta-button .arrow {
-    transition: transform 0.3s ease;
+  .button-primary .arrow {
+    transition: transform 0.3s var(--ease-apple);
+    font-size: 1.2rem;
+    line-height: 1;
   }
 
-  .cta-button:hover .arrow {
-    transform: translate(4px, -4px); /* Arrow moves on hover */
+  .button-primary:hover .arrow {
+    transform: translateX(4px);
   }
 
-  /* --- 6. CSS-Only Phone Mockup --- */
+  /* --- CSS-Only Phone Mockup (Mobile Optimized) --- */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+  }
+
   .phone-mockup {
-    width: 300px;
-    height: 600px;
-    background: var(--color-text-primary);
+    /* Apple-grade responsive sizing: caps at 300px, but shrinks to 85% of viewport width on tiny screens */
+    width: min(300px, 85vw);
+    aspect-ratio: 9 / 16;
+    background: var(--apple-ink);
     border-radius: 40px;
-    padding: 12px;
-    box-shadow: var(--shadow-soft), 0 0 0 2px rgba(255,255,255,0.1);
-    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(255,255,255,0.1) inset;
     position: relative;
+    transition: transform 0.6s var(--ease-apple);
+  }
+
+  .phone-mockup:hover {
+    transform: translateY(-8px) scale(1.02);
   }
 
   .phone-notch {
     position: absolute;
-    top: 12px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 35%;
     height: 24px;
-    background: var(--color-text-primary);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    background: var(--apple-ink);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
     z-index: 10;
   }
 
   .phone-screen {
     width: 100%;
     height: 100%;
-    background: var(--color-surface);
+    background: var(--apple-cream);
     border-radius: 32px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 2.5rem 1rem 1rem;
   }
 
   .screen-header small {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-accent);
-    font-weight: 600;
+    color: var(--apple-accent);
+    font-weight: 700;
   }
 
   .screen-header h3 {
-    font-size: 1.5rem;
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
     line-height: 1.2;
-    margin: 0.5rem 0 2rem;
-    color: var(--color-text-primary);
+    margin: 0.5rem 0 1.5rem;
+    color: var(--apple-ink);
+    letter-spacing: -0.02em;
   }
 
   .screen-metrics {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 10px;
   }
 
   .metric-card {
-    background: var(--color-bg);
-    padding: 1rem;
-    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 12px;
+    border-radius: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(0,0,0,0.04);
+    font-size: 0.85rem;
   }
 
   .metric-card span {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: var(--apple-muted);
+    font-weight: 500;
   }
 
   .metric-card strong {
-    font-size: 1rem;
-    color: var(--color-text-primary);
+    color: var(--apple-ink);
+    font-weight: 600;
   }
 
-  /* --- 7. Secondary Section --- */
+  .metric-card strong.success { color: #059669; }
+  .metric-card strong.warning { color: #d97706; }
+  .metric-card strong.link { color: var(--apple-accent); font-size: 0.8rem; }
+
+  /* --- Secondary Section --- */
   .section-secondary {
-    padding: 6rem 0;
-    background: var(--color-surface);
+    padding: clamp(60px, 10vw, 100px) 0;
+    background: var(--apple-surface);
     text-align: center;
   }
 
   .section-head {
     max-width: 700px;
-    margin: 0 auto 3rem;
-  }
-
-  .section-head p {
-    font-size: 1.125rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    margin: 0 auto 40px;
   }
 
   .notice-box {
     max-width: 600px;
     margin: 0 auto;
-    background: #FFF4E5; /* Warm, subtle info background */
-    color: #8A5A00;
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--apple-muted);
+    padding: 16px 20px;
+    border-radius: 12px;
     font-size: 0.9rem;
-    border-left: 4px solid #FFB347;
+    border: 1px solid rgba(0,0,0,0.08);
     text-align: left;
+    line-height: 1.5;
+  }
+
+  .notice-box strong {
+    color: var(--apple-ink);
+  }
+
+  /* --- Animations --- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple);
+    transition-delay: var(--delay, 0s);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* =========================================
+     APPLE-GRADE MOBILE RESPONSIVE RULES
+     ========================================= */
+  @media (max-width: 900px) {
+    /* 1. Hero Layout: Clean stacking */
+    .hero-grid {
+      gap: 2.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 2. Thumb-Friendly CTA Button */
+    .button-primary {
+      width: 100%;
+      max-width: 320px;
+      padding: 16px 24px; /* Ensures >48px touch target height */
+    }
+
+    /* 3. Tighten Widget Grid for Small Screens */
+    .features-grid {
+      gap: 10px;
+      width: 100%;
+    }
+
+    .feature-item {
+      padding: 12px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .display-hero {
+      font-size: 2.2rem;
+    }
+    
+    .phone-mockup {
+      width: 85vw; /* Ensures it never overflows on very small devices like iPhone SE */
+      border-radius: 32px;
+      padding: 8px;
+    }
+    
+    .phone-notch {
+      width: 40%;
+      height: 20px;
+      top: 8px;
+    }
+    
+    .phone-screen {
+      border-radius: 26px;
+      padding: 2rem 0.75rem 0.75rem;
+    }
   }
 </style>
+
+<script>
+  // Simple, performant reveal observer
+  const reveals = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach((element) => observer.observe(element));
+</script>
