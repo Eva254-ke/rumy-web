@@ -41,7 +41,7 @@ const path = Astro.url.pathname;
     top: 0;
     z-index: 1000;
     width: 100%;
-    background: rgba(251, 251, 253, 0.85); /* --apple-cream with transparency */
+    background: rgba(251, 251, 253, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -62,6 +62,7 @@ const path = Astro.url.pathname;
     text-align: center;
     flex-wrap: wrap;
     letter-spacing: 0.01em;
+    line-height: 1.4;
   }
 
   .announcement-link {
@@ -72,6 +73,7 @@ const path = Astro.url.pathname;
     align-items: center;
     gap: 4px;
     transition: opacity 0.3s ease;
+    white-space: nowrap;
   }
 
   .announcement-link:hover {
@@ -167,7 +169,7 @@ const path = Astro.url.pathname;
     background: var(--apple-ink, #1d1d1f);
     color: #fff;
     padding: 10px 22px;
-    border-radius: 980px; /* Apple's signature pill radius */
+    border-radius: 980px;
     font-size: 0.85rem;
     font-weight: 500;
     text-decoration: none;
@@ -179,30 +181,44 @@ const path = Astro.url.pathname;
     transform: scale(1.02);
   }
 
-  /* --- Responsive Adjustments --- */
+  /* --- Ultra-Compact Mobile Adjustments --- */
   @media (max-width: 900px) {
-    .nav-shell {
-      height: 56px;
-      padding: 0 5vw;
+    .announcement {
+      padding: 6px 4vw; /* Drastically reduced vertical padding */
+      font-size: 0.7rem; /* Smaller, tighter text */
+      line-height: 1.3;
+      gap: 4px;
     }
 
-    nav {
-      display: none; /* Consider adding a mobile hamburger menu trigger here for production */
+    .announcement-link .arrow {
+      font-size: 0.8rem;
+    }
+
+    .nav-shell {
+      height: 48px; /* Ultra-compact, Apple-style mobile nav height */
+      padding: 0 4vw;
+    }
+
+    .brand {
+      gap: 8px;
+    }
+
+    .brand img {
+      width: 28px;
+      height: 28px; /* Slightly smaller logo for mobile balance */
     }
 
     .brand-text {
-      font-size: 1.1rem;
+      font-size: 1rem; /* Tighter brand text */
     }
-    
-    .announcement {
-      font-size: 0.75rem;
-      padding: 8px 5vw;
-      gap: 6px;
+
+    nav {
+      display: none; /* Hidden on mobile (replace with hamburger menu in production if needed) */
     }
-    
+
     .nav-cta {
-      padding: 8px 16px;
-      font-size: 0.8rem;
+      padding: 6px 14px; /* Compact touch target */
+      font-size: 0.75rem;
     }
   }
 </style>

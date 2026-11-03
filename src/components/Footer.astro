@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
   <div class="footer-container">
     <div class="footer-grid">
       
-      <!-- Column 1: Brand & Intro -->
+      <!-- Column 1: Brand & Intro (Spans full width on mobile) -->
       <div class="footer-col brand-col">
         <a href="/" class="footer-brand" aria-label="Rumy Cakes home">
           <img src="/rumy-cakes-logo.png" alt="Rumy Cakes Logo" width="32" height="32" />
@@ -207,21 +207,55 @@ const currentYear = new Date().getFullYear();
     letter-spacing: 0.02em;
   }
 
-  /* --- Responsive Adjustments --- */
+  /* --- Apple-Style Mobile Adjustments (Prevents Endless Scrolling) --- */
   @media (max-width: 768px) {
+    .site-footer {
+      padding: 40px 5vw 24px;
+    }
+
     .footer-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
+      /* Use a 2-column grid for links to save vertical space */
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 24px;
+      margin-bottom: 32px;
+    }
+
+    /* Brand column spans full width at the top */
+    .brand-col {
+      grid-column: 1 / -1;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .footer-tagline {
+      max-width: 100%;
+      font-size: 0.85rem;
+    }
+
+    .footer-heading {
+      font-size: 0.7rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-nav {
+      gap: 10px;
+    }
+
+    .footer-nav a {
+      font-size: 0.85rem;
+    }
+
+    .footer-address {
+      font-size: 0.85rem;
+      margin-bottom: 12px;
     }
 
     .footer-base {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
-    }
-    
-    .site-footer {
-      padding: 48px 5vw 24px;
+      gap: 8px;
+      padding-top: 20px;
+      font-size: 0.75rem;
     }
   }
 </style>
