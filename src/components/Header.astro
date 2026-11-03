@@ -2,7 +2,7 @@
 const path = Astro.url.pathname;
 ---
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <!-- Sleek Announcement Bar -->
   <div class="announcement">
     <span>NEW: The Rumy Cakes App is here to help you bake, manage &amp; grow.</span>
@@ -11,7 +11,7 @@ const path = Astro.url.pathname;
     </a>
   </div>
 
-  <!-- Frosted Glass Navigation -->
+  <!-- Frosted Glass Navigation Shell -->
   <div class="nav-shell">
     <a href="/" class="brand" aria-label="Rumy Cakes home">
       <img src="/rumy-cakes-logo.png" alt="Rumy Cakes Logo" width="36" height="36" />
@@ -20,7 +20,8 @@ const path = Astro.url.pathname;
       </span>
     </a>
 
-    <nav aria-label="Main navigation">
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="Main navigation">
       <a href="/about" class:active={path === '/about'}>Our story</a>
       <a href="/orders" class:active={path === '/orders'}>Order a cake</a>
       <a href="/training" class:active={path === '/training'}>Academy</a>
@@ -28,10 +29,31 @@ const path = Astro.url.pathname;
       <a href="/app" class:active={path === '/app'}>Rumy App</a>
     </nav>
 
-    <a class="nav-cta" href="https://wa.me/254792414264?text=Hello%20Rumy%20Cakes%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">
+    <a class="nav-cta desktop-cta" href="https://wa.me/254792414264?text=Hello%20Rumy%20Cakes%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">
       Let's talk
     </a>
+
+    <!-- Mobile Menu Toggle (Hamburger) -->
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
   </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <div class="mobile-nav-inner">
+      <a href="/about" class:active={path === '/about'}>Our story</a>
+      <a href="/orders" class:active={path === '/orders'}>Order a cake</a>
+      <a href="/training" class:active={path === '/training'}>Academy</a>
+      <a href="/accessories" class:active={path === '/accessories'}>Accessories</a>
+      <a href="/app" class:active={path === '/app'}>Rumy App</a>
+      <a class="nav-cta mobile-cta" href="https://wa.me/254792414264?text=Hello%20Rumy%20Cakes%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">
+        Let's talk on WhatsApp
+      </a>
+    </div>
+  </nav>
 </header>
 
 <style>
@@ -44,31 +66,30 @@ const path = Astro.url.pathname;
     background: rgba(251, 251, 253, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(29, 29, 31, 0.1);
     transition: background 0.3s ease;
   }
 
   /* Announcement Bar */
   .announcement {
+    padding: 0.68rem 5vw;
+    background: var(--ink, #1d1d1f);
+    color: #fff;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 10px 5vw;
-    background: var(--apple-ink, #1d1d1f);
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-align: center;
     flex-wrap: wrap;
-    letter-spacing: 0.01em;
     line-height: 1.4;
   }
 
-  .announcement-link {
+  .announcement a {
     color: #fff;
     font-weight: 600;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -76,38 +97,40 @@ const path = Astro.url.pathname;
     white-space: nowrap;
   }
 
-  .announcement-link:hover {
+  .announcement a:hover {
     opacity: 0.8;
   }
 
-  .announcement-link .arrow {
+  .announcement a .arrow {
     font-size: 1rem;
     line-height: 1;
     transition: transform 0.3s ease;
   }
 
-  .announcement-link:hover .arrow {
+  .announcement a:hover .arrow {
     transform: translateX(3px);
   }
 
   /* Navigation Shell */
   .nav-shell {
+    width: 100%;
+    height: 64px;
+    padding: 0 5vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5vw;
-    height: 64px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 28px;
   }
 
-  /* Brand */
   .brand {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    font-size: 1.14rem;
+    line-height: 0.98;
+    white-space: nowrap;
+    color: var(--ink, #1d1d1f);
     text-decoration: none;
-    color: var(--apple-ink, #1d1d1f);
   }
 
   .brand img {
@@ -120,53 +143,54 @@ const path = Astro.url.pathname;
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1;
   }
 
   .brand-text b {
     font-weight: 700;
   }
 
-  /* Nav Links */
-  nav {
+  /* Desktop Navigation */
+  .desktop-nav {
     display: flex;
     align-items: center;
     gap: 32px;
   }
 
-  nav a {
+  .desktop-nav a {
     font-family: var(--sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--apple-muted, #86868b);
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: var(--muted, #86868b);
     position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
   }
 
-  nav a:hover,
-  nav a.active {
-    color: var(--apple-ink, #1d1d1f);
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    color: var(--ink, #1d1d1f);
   }
 
-  /* Subtle active indicator */
-  nav a.active::after {
+  .desktop-nav a.active::after {
     content: '';
     position: absolute;
     bottom: -6px;
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--apple-accent, #b02e4f);
+    background: var(--pink, #cc4d70);
     border-radius: 2px;
   }
 
-  /* CTA Button */
+  .desktop-cta {
+    display: inline-flex;
+  }
+
   .nav-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--apple-ink, #1d1d1f);
+    background: var(--ink, #1d1d1f);
     color: #fff;
     padding: 10px 22px;
     border-radius: 980px;
@@ -177,25 +201,127 @@ const path = Astro.url.pathname;
   }
 
   .nav-cta:hover {
-    background: var(--apple-accent, #b02e4f);
+    background: var(--pink, #cc4d70);
     transform: scale(1.02);
   }
 
-  /* --- Ultra-Compact Mobile Adjustments --- */
+  /* =========================================
+     MOBILE MENU STYLES (Apple-Grade)
+     ========================================= */
+  .mobile-menu-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 6px;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--ink, #1d1d1f);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(251, 251, 253, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-nav-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .mobile-nav a:not(.nav-cta) {
+    font-family: var(--serif, 'Playfair Display', Georgia, serif);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--ink, #1d1d1f);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-nav a:not(.nav-cta).active {
+    color: var(--pink, #cc4d70);
+  }
+
+  .mobile-cta {
+    margin-top: 16px;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Hamburger to 'X' Animation */
+  .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .site-header.is-open .mobile-menu-toggle .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Menu Open State */
+  .site-header.is-open .mobile-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Prevent background scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* =========================================
+     RESPONSIVE ADJUSTMENTS
+     ========================================= */
   @media (max-width: 900px) {
     .announcement {
-      padding: 6px 4vw; /* Drastically reduced vertical padding */
-      font-size: 0.7rem; /* Smaller, tighter text */
+      padding: 6px 4vw;
+      font-size: 0.7rem;
       line-height: 1.3;
       gap: 4px;
     }
 
-    .announcement-link .arrow {
+    .announcement a .arrow {
       font-size: 0.8rem;
     }
 
     .nav-shell {
-      height: 48px; /* Ultra-compact, Apple-style mobile nav height */
+      height: 56px;
       padding: 0 4vw;
     }
 
@@ -205,20 +331,45 @@ const path = Astro.url.pathname;
 
     .brand img {
       width: 28px;
-      height: 28px; /* Slightly smaller logo for mobile balance */
+      height: 28px;
     }
 
     .brand-text {
-      font-size: 1rem; /* Tighter brand text */
+      font-size: 1rem;
     }
 
-    nav {
-      display: none; /* Hidden on mobile (replace with hamburger menu in production if needed) */
+    /* Hide desktop elements */
+    .desktop-nav, .desktop-cta {
+      display: none;
     }
-
-    .nav-cta {
-      padding: 6px 14px; /* Compact touch target */
-      font-size: 0.75rem;
+    
+    /* Show mobile toggle */
+    .mobile-menu-toggle {
+      display: flex;
     }
   }
 </style>
+
+<script>
+  // Mobile Menu Logic
+  const header = document.getElementById('site-header');
+  const toggleBtn = header.querySelector('.mobile-menu-toggle');
+  
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('is-open');
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    // Auto-close menu when a link is clicked
+    const mobileLinks = header.querySelectorAll('.mobile-nav a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        header.classList.remove('is-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+</script>
