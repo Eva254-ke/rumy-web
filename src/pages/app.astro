@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
         <h1 class="display-hero">Your baking business.<br /><em>Better managed.</em></h1>
         <p class="hero-lead">Running a baking business involves more than baking. Use one simple platform to understand your sales, track expenses, and stay on top of stock.</p>
         
-        <!-- Clean Feature List (Apple Style) -->
+        <!-- Clean Feature List (iOS Widget Style on Mobile) -->
         <div class="feature-list">
           <div class="feature-item" data-reveal style="--delay: 0s;">
             <span class="feature-num">01</span>
@@ -165,14 +165,14 @@ import Layout from '../layouts/Layout.astro';
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
   }
 
   @media (min-width: 900px) {
     .hero-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      gap: 6vw;
     }
   }
 
@@ -186,7 +186,7 @@ import Layout from '../layouts/Layout.astro';
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     max-width: 480px;
   }
 
@@ -197,6 +197,7 @@ import Layout from '../layouts/Layout.astro';
     padding: 16px;
     background: var(--apple-surface);
     border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.04);
     transition: transform 0.4s var(--ease-apple), background-color 0.4s var(--ease-apple);
   }
 
@@ -255,8 +256,10 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .phone-mockup {
-    width: 300px;
-    height: 600px;
+    /* Apple-grade responsive sizing: caps at 300px, but shrinks to 85% of viewport width on tiny screens */
+    width: min(300px, 85vw);
+    aspect-ratio: 9 / 16;
+    height: auto;
     background: var(--apple-ink);
     border-radius: 44px;
     padding: 12px;
@@ -280,7 +283,7 @@ import Layout from '../layouts/Layout.astro';
     top: 12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90px;
+    width: 35%;
     height: 28px;
     background: var(--apple-ink);
     border-bottom-left-radius: 18px;
@@ -296,7 +299,7 @@ import Layout from '../layouts/Layout.astro';
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 3rem 1.25rem 1.5rem;
+    padding: 2.5rem 1rem 1rem;
   }
 
   .app-header { margin-bottom: 1.5rem; }
@@ -392,11 +395,93 @@ import Layout from '../layouts/Layout.astro';
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* --- Responsive --- */
+  /* =========================================
+     APPLE-GRADE MOBILE RESPONSIVE RULES
+     ========================================= */
   @media (max-width: 899px) {
-    .hero-app { padding: 60px 0 80px; }
-    .feature-list { grid-template-columns: 1fr; }
-    .phone-mockup { width: 280px; height: 560px; animation: none; }
+    .hero-app { 
+      padding: 60px 5vw 80px; 
+      text-align: center;
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .hero-lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* iOS Widget Style Grid on Mobile: Saves vertical space */
+    .feature-list { 
+      grid-template-columns: 1fr 1fr; 
+      gap: 10px;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 32px;
+    }
+    
+    .feature-item {
+      padding: 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .feature-num {
+      width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+    }
+    
+    .feature-text {
+      font-size: 0.85rem;
+      line-height: 1.2;
+    }
+
+    /* Thumb-friendly CTA Button */
+    .button-primary {
+      width: 100%;
+      max-width: 320px;
+      padding: 16px 24px; /* Ensures >48px touch target height */
+    }
+
+    /* Fluid Phone Mockup for small screens (prevents layout shift) */
+    .phone-mockup { 
+      width: min(300px, 85vw); 
+      aspect-ratio: 9 / 16;
+      height: auto;
+      animation: none; /* Save battery on mobile */
+      border-radius: 36px;
+      padding: 8px;
+    }
+    
+    .phone-notch {
+      width: 40%;
+      height: 20px;
+      top: 8px;
+    }
+    
+    .phone-screen {
+      border-radius: 28px;
+      padding: 2rem 0.75rem 0.75rem;
+    }
+
+    .app-title {
+      font-size: 1.25rem;
+    }
+    
+    .app-metric-main strong {
+      font-size: 1.5rem;
+    }
+    
+    .notice-box {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -406,10 +491,14 @@ import Layout from '../layouts/Layout.astro';
       opacity: 1 !important;
       transform: none !important;
     }
+    .hero-content, .hero-visual {
+      transform: none !important;
+    }
   }
 </style>
 
 <script>
+  // Simple, performant reveal observer
   const reveals = document.querySelectorAll('[data-reveal]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -422,6 +511,7 @@ import Layout from '../layouts/Layout.astro';
 
   reveals.forEach((element) => observer.observe(element));
 
+  // Subtle spring physics (Automatically disabled on touch devices to save battery)
   const scenes = document.querySelectorAll('[data-spring-scene]');
   scenes.forEach((scene) => {
     const targets = scene.querySelectorAll('.hero-content, .hero-visual');
