@@ -216,6 +216,40 @@ p {
   color: #fff;
 }
 
+/* --- Homepage Specific Buttons (Apple-Grade) --- */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 980px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s var(--ease-apple);
+}
+
+.button-primary:hover {
+  background: var(--pink);
+  transform: scale(1.02);
+}
+
+.link-secondary {
+  color: var(--pink);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease-apple);
+  padding-bottom: 2px;
+}
+
+.link-secondary:hover {
+  border-bottom-color: var(--pink);
+}
+
 /* --- Typography Utilities --- */
 .section-label, .eyebrow {
   display: inline-block;
@@ -240,6 +274,16 @@ p {
 .display em {
   color: var(--pink);
   font-style: italic;
+}
+
+.display-small {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 24px;
 }
 
 .section-title {
@@ -272,7 +316,7 @@ p {
   align-items: center;
   gap: 8px;
   color: var(--pink);
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
@@ -304,7 +348,7 @@ p {
   grid-template-columns: 1fr 1fr;
   gap: 8vw;
   align-items: center;
-  padding: clamp(80px, 10vw, 140px) 5vw;
+  padding: clamp(80px, 10vw, 120px) 5vw;
   background: var(--cream);
 }
 
@@ -334,7 +378,7 @@ p {
 
 .feature-heading {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -343,7 +387,7 @@ p {
 }
 
 .feature-text {
-  font-size: clamp(1.125rem, 2vw, 1.35rem);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
   line-height: 1.5;
   color: var(--muted);
   max-width: 680px;
@@ -614,69 +658,93 @@ p {
   font-weight: 600;
 }
 
-.phone-card {
-  width: min(300px, 100%);
+.phone-card, .phone-mockup {
+  width: 280px;
+  max-width: 80vw;
   min-height: 420px;
   margin: auto;
   border: 8px solid #171215;
   border-radius: 36px;
   background: linear-gradient(145deg, #f8e4d7, #c05673);
-  padding: 24px;
-  box-shadow: 24px 24px 0 rgba(239, 159, 140, 0.12);
+  padding: 10px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.15);
   position: relative;
+  transition: transform 0.6s var(--ease-apple);
 }
 
-.phone-card::before {
+.phone-card:hover, .phone-mockup:hover {
+  transform: translateY(-8px);
+}
+
+.phone-card::before, .phone-notch {
   content: '';
   position: absolute;
-  top: 0;
-  left: calc(50% - 45px);
-  width: 90px;
-  height: 20px;
-  border-radius: 0 0 14px 14px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
   background: #171215;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 10;
 }
 
-.phone-card small {
-  color: #8b3a51;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--cream);
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.25rem 1.25rem;
+}
+
+.phone-screen small {
+  font-size: 0.7rem;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pink);
+  font-weight: 700;
 }
 
-.phone-card h3 {
-  margin: 36px 0 24px;
-  color: #582137;
-  font: 600 1.8rem / 1.15 var(--serif);
+.phone-screen h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0.5rem 0 1.5rem;
   letter-spacing: -0.02em;
 }
 
 .phone-row {
-  margin: 10px 0;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  color: #532940;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
 }
 
-.phone-row span {
-  color: #b65a70;
-  font-weight: 500;
-}
+.phone-row strong.warning { color: #dc2626; }
+.phone-row strong.link { color: var(--pink); font-size: 0.8rem; }
 
-/* --- Story Grid --- */
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6vw;
+/* --- Story Grid & Section --- */
+.story-grid, .story-section {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding: clamp(80px, 12vw, 120px) 5vw;
+  background: var(--surface);
+}
+
+.story-inner {
+  max-width: 800px;
 }
 
 .quote {
@@ -703,23 +771,29 @@ p {
   box-shadow: 0 24px 48px -12px rgba(32, 23, 19, 0.1);
 }
 
-/* --- CTA Panel --- */
-.cta-panel {
+/* --- CTA Panel & Section --- */
+.cta-panel, .cta-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 36px;
-  padding: clamp(60px, 8vw, 100px) 5vw;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  background: transparent;
+  text-align: center;
+  padding: clamp(80px, 12vw, 120px) 5vw;
+  background: var(--cream);
 }
 
-.cta-panel h2 {
-  max-width: 700px;
-  margin: 0;
-  font: 600 clamp(2rem, 3.5vw, 3rem) / 1.15 var(--serif);
-  letter-spacing: -0.03em;
+.cta-inner {
+  max-width: 800px;
+  will-change: transform;
+  transform: translate3d(var(--spring-x, 0), var(--spring-y, 0), 0);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
 }
 
 /* =========================================
@@ -1123,7 +1197,7 @@ p {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition: opacity 0.8s var(--ease-apple), 
               transform 0.8s var(--ease-apple);
   transition-delay: var(--delay, 0ms);
@@ -1159,7 +1233,9 @@ p {
   }
 }
 
-/* --- Responsive Adjustments --- */
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (Apple-Grade Mobile)
+   ========================================= */
 @media (max-width: 900px) {
   /* --- Ultra-Compact Mobile Header --- */
   .announcement {
@@ -1200,7 +1276,7 @@ p {
     font-size: 0.75rem;
   }
 
-  /* --- Rest of Mobile Adjustments --- */
+  /* --- Hero & CTA Actions: Stack cleanly --- */
   .hero, .hero-premium {
     grid-template-columns: 1fr;
     padding: 30px 5vw 60px;
@@ -1218,7 +1294,20 @@ p {
     margin-right: auto;
   }
 
-  .hero-actions {
+  .hero-actions, .cta-actions {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-actions .button-primary, 
+  .hero-actions .link-secondary,
+  .cta-actions .button-primary,
+  .cta-actions .link-secondary {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
     justify-content: center;
   }
 
@@ -1227,9 +1316,11 @@ p {
     order: -1;
   }
 
+  /* --- Feature Rows: Strict "Image First, Text Second" stacking --- */
   .feature-row {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+    padding: 60px 5vw;
     text-align: center;
   }
 
@@ -1247,6 +1338,20 @@ p {
   .feature-text {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* --- Minimal Mobile Buttons: Clean, full-width, unobtrusive --- */
+  .feature-row .feature-button {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    margin-top: 8px;
+  }
+
+  .feature-row .feature-link {
+    margin-top: 16px;
+    font-size: 1rem;
   }
 
   .service-grid {
@@ -1279,7 +1384,7 @@ p {
     margin-right: auto;
   }
 
-  .phone-card {
+  .phone-card, .phone-mockup {
     margin-top: 20px;
   }
 
@@ -1359,13 +1464,13 @@ p {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr; /* 2-column for links to save vertical space */
+    grid-template-columns: 1fr 1fr;
     gap: 32px 24px;
     margin-bottom: 32px;
   }
 
   .footer-col.brand-col {
-    grid-column: 1 / -1; /* Brand spans full width at the top */
+    grid-column: 1 / -1;
     margin-bottom: 8px;
     gap: 12px;
   }
@@ -1447,17 +1552,6 @@ p {
 
   .app-features div:nth-child(even) {
     padding-left: 0;
-  }
-
-  .hero-actions {
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .hero-actions .button, .hero-actions .text-link {
-    width: 100%;
-    justify-content: center;
   }
 
   .info-card,

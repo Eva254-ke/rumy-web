@@ -34,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-label">We Bake</span>
         <h2 class="feature-heading">Masterpieces for every milestone.</h2>
         <p class="feature-text">Beautiful, custom-designed cakes for birthdays, weddings, graduations, and all the moments in between. Baked with precision and decorated with care.</p>
-        <a href="/orders" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Order a cake</a>
+        <a href="/orders" class="button-primary feature-button">Order a cake</a>
       </div>
     </div>
 
@@ -47,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-label">We Train</span>
         <h2 class="feature-heading">Turn passion into a profession.</h2>
         <p class="feature-text">Practical, hands-on classes for aspiring and practising bakers through the Rumy Baking Academy. Learn from industry professionals in a supportive environment.</p>
-        <a href="/training" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Explore classes</a>
+        <a href="/training" class="button-primary feature-button">Explore classes</a>
       </div>
     </div>
 
@@ -60,14 +60,13 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-label">We Supply</span>
         <h2 class="feature-heading">Professional tools, accessible to all.</h2>
         <p class="feature-text">High-quality decorating tools, baking essentials, and accessories that make creative, professional-grade baking possible in your own kitchen.</p>
-        <a href="/accessories" class="button-primary" style="padding: 12px 28px; font-size: 1rem;">Shop smarter</a>
+        <a href="/accessories" class="button-primary feature-button">Shop smarter</a>
       </div>
     </div>
 
     <!-- Feature 4: We Innovate (App) -->
     <div class="feature-row alt-bg" data-reveal style="--delay: 0.3s;">
       <div class="feature-visual phone-visual">
-        <!-- Integrated CSS Phone Mockup for the App -->
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-screen">
@@ -83,7 +82,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-label">We Innovate</span>
         <h2 class="feature-heading">Your bakery, beautifully managed.</h2>
         <p class="feature-text">Record sales, track expenses, and manage stock with the Rumy Cakes App. A simpler, calmer way to handle the moving parts of your baking business.</p>
-        <a href="/app" class="link-arrow">Discover the app</a>
+        <a href="/app" class="link-arrow feature-link">Discover the app</a>
       </div>
     </div>
 
@@ -120,7 +119,7 @@ import Layout from '../layouts/Layout.astro';
     --apple-ink: #1d1d1f;
     --apple-muted: #86868b;
     --apple-cream: #fbfbfd;
-    --apple-surface: #f5f5f7; /* Subtle shift for alternating rows */
+    --apple-surface: #f5f5f7;
     --apple-accent: #b02e4f;
     --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -139,7 +138,7 @@ import Layout from '../layouts/Layout.astro';
 
   .display-hero {
     font-family: var(--serif, 'Playfair Display', Georgia, serif);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -154,7 +153,7 @@ import Layout from '../layouts/Layout.astro';
 
   .display-small {
     font-family: var(--serif, 'Playfair Display', Georgia, serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -163,7 +162,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .hero-lead, .feature-text {
-    font-size: clamp(1.125rem, 2vw, 1.35rem);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
     line-height: 1.5;
     color: var(--apple-muted);
     max-width: 680px;
@@ -172,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* --- Hero Section --- */
   .hero-premium {
-    padding: clamp(80px, 12vw, 160px) 5vw clamp(60px, 8vw, 100px);
+    padding: clamp(80px, 12vw, 140px) 5vw clamp(60px, 8vw, 100px);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -188,7 +187,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-actions {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -200,9 +199,9 @@ import Layout from '../layouts/Layout.astro';
     justify-content: center;
     background: var(--apple-ink);
     color: #fff;
-    padding: 16px 36px;
+    padding: 14px 32px;
     border-radius: 980px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s var(--ease-apple);
@@ -215,7 +214,7 @@ import Layout from '../layouts/Layout.astro';
 
   .link-secondary {
     color: var(--apple-accent);
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     font-weight: 500;
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -237,20 +236,19 @@ import Layout from '../layouts/Layout.astro';
     grid-template-columns: 1fr 1fr;
     gap: 8vw;
     align-items: center;
-    padding: clamp(80px, 10vw, 140px) 5vw;
+    padding: clamp(80px, 10vw, 120px) 5vw;
     background: var(--apple-cream);
   }
 
-  /* Alternating Rule: Reverse order for even rows */
-  .feature-row:nth-child(even) {
+  .feature-row.alt-bg {
     background: var(--apple-surface);
   }
   
-  .feature-row:nth-child(even) .feature-visual {
+  .feature-row.alt-bg .feature-visual {
     order: 2;
   }
   
-  .feature-row:nth-child(even) .feature-content {
+  .feature-row.alt-bg .feature-content {
     order: 1;
   }
 
@@ -268,7 +266,7 @@ import Layout from '../layouts/Layout.astro';
 
   .feature-heading {
     font-family: var(--serif, 'Playfair Display', Georgia, serif);
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -281,7 +279,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     gap: 8px;
     color: var(--apple-accent);
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
@@ -303,7 +301,7 @@ import Layout from '../layouts/Layout.astro';
     transform: translateX(4px);
   }
 
-  /* --- Phone Mockup (For "We Innovate") --- */
+  /* --- Phone Mockup --- */
   .phone-visual {
     display: flex;
     justify-content: center;
@@ -311,6 +309,7 @@ import Layout from '../layouts/Layout.astro';
 
   .phone-mockup {
     width: 280px;
+    max-width: 80vw;
     height: 560px;
     background: var(--apple-ink);
     border-radius: 40px;
@@ -382,7 +381,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* --- Story Section --- */
   .story-section {
-    padding: clamp(80px, 12vw, 140px) 5vw;
+    padding: clamp(80px, 12vw, 120px) 5vw;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -396,7 +395,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* --- CTA Section --- */
   .cta-section {
-    padding: clamp(80px, 12vw, 140px) 5vw;
+    padding: clamp(80px, 12vw, 120px) 5vw;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -412,7 +411,7 @@ import Layout from '../layouts/Layout.astro';
 
   .cta-actions {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -442,17 +441,34 @@ import Layout from '../layouts/Layout.astro';
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  /* --- Responsive --- */
+  /* =========================================
+     APPLE-GRADE MOBILE RESPONSIVE RULES
+     ========================================= */
   @media (max-width: 900px) {
+    /* 1. Hero & CTA Actions: Stack cleanly */
+    .hero-actions, .cta-actions {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+    
+    .button-primary, .link-secondary {
+      width: 100%;
+      max-width: 320px; /* Prevents absurdly wide buttons on large phones */
+      text-align: center;
+      justify-content: center;
+    }
+
+    /* 2. Feature Rows: Strict "Image First, Text Second" stacking */
     .feature-row {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 32px;
+      padding: 60px 5vw;
       text-align: center;
     }
 
-    /* On mobile, always show image first, then text */
     .feature-row .feature-visual {
-      order: -1 !important;
+      order: -1 !important; /* Forces image to ALWAYS be on top on mobile */
     }
 
     .feature-row .feature-content {
@@ -462,16 +478,32 @@ import Layout from '../layouts/Layout.astro';
       align-items: center;
     }
 
-    .hero-actions, .cta-actions {
-      flex-direction: column;
-      gap: 20px;
+    .feature-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 3. Minimal Mobile Buttons: Clean, full-width, unobtrusive */
+    .feature-row .feature-button {
       width: 100%;
+      max-width: 320px;
+      padding: 14px 24px; /* Comfortable 48px+ touch target height */
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .feature-row .feature-link {
+      margin-top: 16px;
+      font-size: 1rem;
+    }
+
+    /* 4. Typography Scaling */
+    .display-hero {
+      font-size: 2.5rem;
     }
     
-    .button-primary, .link-secondary {
-      width: 100%;
-      text-align: center;
-      justify-content: center;
+    .display-small {
+      font-size: 2rem;
     }
   }
 
