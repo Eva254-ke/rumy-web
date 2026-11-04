@@ -18,7 +18,7 @@ const ogImage = "https://rumycakes.com/rumy-cakes-logo.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#fbfbfd" />
     
     <!-- SEO & Social Sharing -->
     <title>Join a Live Baking Stream | Rumy Cakes</title>
@@ -34,103 +34,221 @@ const ogImage = "https://rumycakes.com/rumy-cakes-logo.png";
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={streamUrl} />
-    <meta property="twitter:title" content="🔴 LIVE: Join the Baking Stream on Rumy Cakes" />
+    <meta property="twitter:title" content=" LIVE: Join the Baking Stream on Rumy Cakes" />
     <meta property="twitter:description" content="Watch, chat, and order fresh artisanal cakes in real-time." />
     <meta property="twitter:image" content={ogImage} />
 
     <style>
-      /* Apple Minimal Design - Production Optimized */
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+      /* --- Apple Minimal Design - Production Optimized --- */
+      :root {
+        --apple-ink: #1d1d1f;
+        --apple-muted: #86868b;
+        --apple-cream: #fbfbfd;
+        --apple-accent: #cc4d70;
+        --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      * { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+      }
       
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-        background: #000000;
-        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'DM Sans', sans-serif;
+        background: var(--apple-cream);
+        color: var(--apple-ink);
         height: 100vh;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       .bg-layer {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: radial-gradient(circle at center, #2a0a18 0%, #000000 100%);
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(204, 77, 112, 0.08) 0%, transparent 60%);
         z-index: 0;
+        pointer-events: none;
       }
 
       .content {
-        position: relative; z-index: 1; flex: 1;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        padding: 2rem; text-align: center;
+        position: relative; 
+        z-index: 1; 
+        flex: 1;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center;
+        padding: 2rem 5vw; 
+        text-align: center;
       }
 
       /* --- Apple-Style Circular Logo --- */
       .app-logo {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%; /* Perfect circle like an iOS app icon */
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
         object-fit: cover;
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle premium border */
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Depth without being heavy */
-        background: #ffffff; /* Clean fallback if logo has transparency */
+        margin-bottom: 2rem;
+        border: 1px solid rgba(29, 29, 31, 0.1);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        background: #ffffff;
       }
 
       .live-badge {
-        display: inline-flex; align-items: center; gap: 0.5rem;
-        background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4);
-        padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.5rem;
+        display: inline-flex; 
+        align-items: center; 
+        gap: 0.5rem;
+        background: rgba(204, 77, 112, 0.1); 
+        border: 1px solid rgba(204, 77, 112, 0.2);
+        padding: 0.5rem 1.25rem; 
+        border-radius: 980px; 
+        margin-bottom: 2rem;
       }
 
       .live-dot {
-        width: 8px; height: 8px; background: #ef4444; border-radius: 50%;
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        width: 6px; 
+        height: 6px; 
+        background: var(--apple-accent); 
+        border-radius: 50%;
+        animation: pulse 2s var(--ease-apple) infinite;
       }
 
-      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+      @keyframes pulse { 
+        0%, 100% { opacity: 1; transform: scale(1); } 
+        50% { opacity: 0.5; transform: scale(0.9); } 
+      }
 
-      .live-text { font-size: 0.75rem; font-weight: 700; color: #ef4444; letter-spacing: 0.1em; }
+      .live-text { 
+        font-size: 0.75rem; 
+        font-weight: 600; 
+        color: var(--apple-accent); 
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
 
       h1 {
-        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-        font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 800; line-height: 1.15; 
-        margin-bottom: 1rem; letter-spacing: -0.02em;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2rem, 6vw, 3rem); 
+        font-weight: 600; 
+        line-height: 1.1; 
+        margin-bottom: 1rem; 
+        letter-spacing: -0.03em;
+        color: var(--apple-ink);
       }
 
-      p { font-size: 1.05rem; color: #a1a1a6; margin-bottom: 3rem; line-height: 1.5; max-width: 400px; }
+      p { 
+        font-size: 1.125rem; 
+        color: var(--apple-muted); 
+        margin-bottom: 3rem; 
+        line-height: 1.6; 
+        max-width: 420px;
+        font-weight: 400;
+      }
 
-      .actions { width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 1rem; }
+      .actions { 
+        width: 100%; 
+        max-width: 320px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 1rem; 
+      }
 
       .btn {
-        display: flex; align-items: center; justify-content: center; gap: 0.75rem;
-        width: 100%; padding: 1rem; border-radius: 14px; font-weight: 700; font-size: 1rem;
-        text-decoration: none; transition: transform 0.2s ease; border: none; cursor: pointer;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 0.5rem;
+        width: 100%; 
+        padding: 1rem 2rem; 
+        border-radius: 980px; 
+        font-weight: 500; 
+        font-size: 1rem;
+        text-decoration: none; 
+        transition: all 0.3s var(--ease-apple); 
+        border: none; 
+        cursor: pointer;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
       }
-      .btn:active { transform: scale(0.98); }
+      
+      .btn:active { 
+        transform: scale(0.98); 
+      }
 
       .btn-primary { 
-        background: #9d174d; 
+        background: var(--apple-ink); 
         color: #ffffff; 
-        box-shadow: 0 8px 24px rgba(157, 23, 77, 0.4); 
+        box-shadow: 0 4px 16px rgba(29, 29, 31, 0.15);
+      }
+
+      .btn-primary:hover {
+        background: var(--apple-accent);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(204, 77, 112, 0.25);
       }
       
       .btn-secondary { 
-        background: rgba(255, 255, 255, 0.1); 
-        color: #ffffff; 
-        border: 1px solid rgba(255, 255, 255, 0.15); 
-        backdrop-filter: blur(10px); 
+        background: transparent; 
+        color: var(--apple-ink); 
+        border: 1px solid rgba(29, 29, 31, 0.2);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(29, 29, 31, 0.05);
+        border-color: rgba(29, 29, 31, 0.3);
       }
 
       .footer { 
-        padding: 1.5rem; 
+        padding: 2rem 5vw; 
         text-align: center; 
-        font-size: 0.75rem; 
-        color: #52525b; 
+        font-size: 0.875rem; 
+        color: var(--apple-muted); 
         position: relative; 
         z-index: 1; 
       }
-      .footer a { color: #9d174d; text-decoration: none; }
+      
+      .footer a { 
+        color: var(--apple-accent); 
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* --- Mobile Optimizations --- */
+      @media (max-width: 640px) {
+        .app-logo {
+          width: 72px;
+          height: 72px;
+          margin-bottom: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        p {
+          font-size: 1rem;
+          margin-bottom: 2.5rem;
+        }
+
+        .actions {
+          max-width: 280px;
+        }
+
+        .btn {
+          padding: 0.875rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -142,7 +260,7 @@ const ogImage = "https://rumycakes.com/rumy-cakes-logo.png";
       
       <div class="live-badge">
         <div class="live-dot"></div>
-        <span class="live-text">LIVE NOW</span>
+        <span class="live-text">Live Now</span>
       </div>
 
       <h1>Join the Live Baking Stream</h1>
